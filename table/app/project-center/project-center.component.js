@@ -9,16 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var project_service_1 = require('./project.service');
 var ProjectCenterComponent = (function () {
-    function ProjectCenterComponent() {
+    function ProjectCenterComponent(projectService) {
+        this.projectService = projectService;
         this.title = 'Project Center';
     }
+    ProjectCenterComponent.prototype.ngOnInit = function () {
+        this.projects = this.projectService.getProjects();
+        console.log(this.projects);
+    };
     ProjectCenterComponent = __decorate([
         core_1.Component({
             selector: 'ct-project-center',
             templateUrl: 'app/project-center/project-center.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [project_service_1.ProjectService])
     ], ProjectCenterComponent);
     return ProjectCenterComponent;
 }());

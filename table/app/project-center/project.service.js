@@ -9,22 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var shared_module_1 = require('../shared/shared.module');
-var project_service_1 = require('./project.service');
-var project_center_component_1 = require('./project-center.component');
-var ProjectCenterModule = (function () {
-    function ProjectCenterModule() {
+var project_fakedata_1 = require('./project.fakedata');
+var ProjectService = (function () {
+    function ProjectService() {
     }
-    ProjectCenterModule = __decorate([
-        core_1.NgModule({
-            imports: [shared_module_1.SharedModule],
-            declarations: [project_center_component_1.ProjectCenterComponent],
-            providers: [project_service_1.ProjectService],
-            exports: [project_center_component_1.ProjectCenterComponent]
-        }), 
+    ProjectService.prototype.getProjects = function () {
+        return project_fakedata_1.PROJECTS;
+    };
+    ProjectService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], ProjectCenterModule);
-    return ProjectCenterModule;
+    ], ProjectService);
+    return ProjectService;
 }());
-exports.ProjectCenterModule = ProjectCenterModule;
-//# sourceMappingURL=project-center.module.js.map
+exports.ProjectService = ProjectService;
+//# sourceMappingURL=project.service.js.map
