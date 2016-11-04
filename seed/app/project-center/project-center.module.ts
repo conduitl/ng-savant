@@ -10,4 +10,4 @@ import { ProjectCenterComponent } from './project-center.component';
     providers: [],
     exports: [ ProjectCenterComponent ]
 })
-export class ProjectModule { }
+export class ProjectCenterModule { }

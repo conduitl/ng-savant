@@ -2,14 +2,14 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { CoreModule } from './core/core.module';
-import { ProjectModule } from './project-portfolio/project.module';
+import { ProjectCenterModule } from './project-center/project-center.module';
 
 import { AppComponent }   from './app.component';
 @NgModule({
   imports:      [ 
     BrowserModule,
     CoreModule,
-    ProjectModule
+    ProjectCenterModule
   ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ]
