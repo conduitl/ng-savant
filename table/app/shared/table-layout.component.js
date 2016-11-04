@@ -12,6 +12,10 @@ var core_1 = require('@angular/core');
 var TableLayoutComponent = (function () {
     function TableLayoutComponent() {
     }
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Array)
+    ], TableLayoutComponent.prototype, "records", void 0);
     TableLayoutComponent = __decorate([
         core_1.Component({
             selector: 'ct-table',

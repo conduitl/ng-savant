@@ -6,7 +6,7 @@ import { ProjectService } from './project.service';
     selector: 'ct-project-center',
     templateUrl: 'app/project-center/project-center.component.html'
 })
-export class ProjectCenterComponent {
+export class ProjectCenterComponent implements OnInit {
     title: string = 'Project Center';
     projects: Project[];
 
@@ -14,6 +14,5 @@ export class ProjectCenterComponent {
 
     ngOnInit(): void {
         this.projects = this.projectService.getProjects();
-        console.log(this.projects);
     }
  }

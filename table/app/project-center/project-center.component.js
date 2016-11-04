@@ -17,7 +17,6 @@ var ProjectCenterComponent = (function () {
     }
     ProjectCenterComponent.prototype.ngOnInit = function () {
         this.projects = this.projectService.getProjects();
-        console.log(this.projects);
     };
     ProjectCenterComponent = __decorate([
         core_1.Component({
