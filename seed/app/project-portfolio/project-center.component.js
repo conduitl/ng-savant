@@ -9,23 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
-var table_layout_component_1 = require('./table-layout.component');
-var SharedModule = (function () {
-    function SharedModule() {
+var ProjectCenterComponent = (function () {
+    function ProjectCenterComponent() {
+        this.title = 'Project Center';
     }
-    SharedModule = __decorate([
-        core_1.NgModule({
-            imports: [common_1.CommonModule],
-            declarations: [table_layout_component_1.TableLayoutComponent],
-            exports: [
-                common_1.CommonModule,
-                table_layout_component_1.TableLayoutComponent
-            ]
+    ProjectCenterComponent = __decorate([
+        core_1.Component({
+            selector: 'ct-project-center',
+            templateUrl: 'app/project-portfolio/project-center.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], SharedModule);
-    return SharedModule;
+    ], ProjectCenterComponent);
+    return ProjectCenterComponent;
 }());
-exports.SharedModule = SharedModule;
-//# sourceMappingURL=shared.module.js.map
+exports.ProjectCenterComponent = ProjectCenterComponent;
+//# sourceMappingURL=project-center.component.js.map
