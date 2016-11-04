@@ -12,6 +12,9 @@ var core_1 = require('@angular/core');
 var TableLayoutComponent = (function () {
     function TableLayoutComponent() {
     }
+    TableLayoutComponent.prototype.ngOnChanges = function () {
+        console.log(this.records);
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Array)
