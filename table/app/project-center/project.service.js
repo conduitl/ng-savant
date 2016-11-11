@@ -9,12 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var project_fakedata_1 = require('./project.fakedata');
+var fakedata_1 = require('./fakedata');
 var ProjectService = (function () {
     function ProjectService() {
     }
     ProjectService.prototype.getProjects = function () {
-        return project_fakedata_1.PROJECTS;
+        // actual implementation would use async method
+        return fakedata_1.PROJECTS;
+    };
+    ProjectService.prototype.getPersonnel = function () {
+        return fakedata_1.PERSONNEL;
     };
     ProjectService = __decorate([
         core_1.Injectable(), 

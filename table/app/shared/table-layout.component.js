@@ -9,16 +9,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var layout_model_1 = require('./layout.model');
 var TableLayoutComponent = (function () {
     function TableLayoutComponent() {
     }
     TableLayoutComponent.prototype.ngOnChanges = function () {
-        console.log(this.records);
+        if (this.settings) {
+            this.columnMaps = this.settings
+                .map(function (col) { return new layout_model_1.ColumnMap(col); });
+        }
+        else {
+            this.columnMaps = Object.keys(this.records[0]).map(function (key) {
+                return new layout_model_1.ColumnMap({ primaryKey: key });
+            });
+        }
     };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Array)
     ], TableLayoutComponent.prototype, "records", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], TableLayoutComponent.prototype, "caption", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Array)
+    ], TableLayoutComponent.prototype, "settings", void 0);
     TableLayoutComponent = __decorate([
         core_1.Component({
             selector: 'ct-table',

@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
-
 import { SharedModule } from '../shared/shared.module';
-
-import { ProjectService } from './project.service';
 import { ProjectCenterComponent } from './project-center.component';
-
+import { ProjectService } from './project.service';
 @NgModule({
     imports: [ SharedModule ],
     declarations: [ ProjectCenterComponent ],

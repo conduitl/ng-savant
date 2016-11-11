@@ -1,27 +1,16 @@
 <table class="table">
-    <caption>Table</caption>
+    <caption *ngIf="caption">{{ caption }}</caption>
     <thead>
         <tr>
-            <th>Column 1</th>
-            <th>Column 2</th>
-            <th>Column 3</th>
+            <th *ngFor="let map of columnMaps">{{ map.header }}</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Some value</td>
-            <td>Some value</td>
-            <td>Some value</td>
-        </tr>
-        <tr>
-            <td>Some value</td>
-            <td>Some value</td>
-            <td>Some value</td>
-        </tr>
-        <tr>
-            <td>Some value</td>
-            <td>Some value</td>
-            <td>Some value</td>
+        <tr *ngFor="let record of records">
+            <td *ngFor="let map of columnMaps"
+                [ctStyleCell]="record[map.access(record)]">
+                {{ record[map.access(record)] | formatCell:map.format }}
+            </td>
         </tr>
     </tbody>
 </table>

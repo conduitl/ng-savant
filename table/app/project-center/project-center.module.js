@@ -10,8 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var shared_module_1 = require('../shared/shared.module');
-var project_service_1 = require('./project.service');
 var project_center_component_1 = require('./project-center.component');
+var project_service_1 = require('./project.service');
 var ProjectCenterModule = (function () {
     function ProjectCenterModule() {
     }

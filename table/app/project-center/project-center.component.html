@@ -2,5 +2,12 @@
     <div class="page-header">
         <h1>{{ title }}</h1>
     </div>
-    <ct-table [records]="projects"></ct-table>
+    <ct-table [records]="projects"
+              [caption]="'NASA Projects'"
+              [settings]="projectSettings">
+    </ct-table>
+    <ct-table [records]="people"
+              [caption]="'NASA Astronauts'"
+              [settings]="personnelSettings">
+    </ct-table>
 </div>
