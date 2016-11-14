@@ -1,4 +1,5 @@
-import { Project, Person } from './model';
+import { Project } from '../project-center/model';
+import { Person } from '../personnel/model';
 export const PROJECTS: Project[] = [
     {
         id: 1,

@@ -10,21 +10,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var fakedata_1 = require('../fake-data/fakedata');
-var ProjectService = (function () {
-    function ProjectService() {
+var PersonnelService = (function () {
+    function PersonnelService() {
     }
-    ProjectService.prototype.getProjects = function () {
-        // actual implementation would use async method
-        return fakedata_1.PROJECTS;
-    };
-    ProjectService.prototype.getPersonnel = function () {
+    PersonnelService.prototype.getPersonnel = function () {
         return fakedata_1.PERSONNEL;
     };
-    ProjectService = __decorate([
+    PersonnelService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], ProjectService);
-    return ProjectService;
+    ], PersonnelService);
+    return PersonnelService;
 }());
-exports.ProjectService = ProjectService;
-//# sourceMappingURL=project.service.js.map
+exports.PersonnelService = PersonnelService;
+//# sourceMappingURL=personnel.service.js.map

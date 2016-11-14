@@ -9,28 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var core_module_1 = require('./core/core.module');
-var project_center_module_1 = require('./project-center/project-center.module');
-var personnel_manager_module_1 = require('./personnel/personnel-manager.module');
-var app_component_1 = require('./app.component');
-var AppModule = (function () {
-    function AppModule() {
+var shared_module_1 = require('../shared/shared.module');
+var personnel_manager_component_1 = require('./personnel-manager.component');
+var personnel_service_1 = require('./personnel.service');
+var PersonnelManagerModule = (function () {
+    function PersonnelManagerModule() {
     }
-    AppModule = __decorate([
+    PersonnelManagerModule = __decorate([
         core_1.NgModule({
-            imports: [
-                platform_browser_1.BrowserModule,
-                core_module_1.CoreModule,
-                project_center_module_1.ProjectCenterModule,
-                personnel_manager_module_1.PersonnelManagerModule
-            ],
-            declarations: [app_component_1.AppComponent],
-            bootstrap: [app_component_1.AppComponent]
+            imports: [shared_module_1.SharedModule],
+            declarations: [personnel_manager_component_1.PersonnelManagerComponent],
+            providers: [personnel_service_1.PersonnelService],
+            exports: [personnel_manager_component_1.PersonnelManagerComponent]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], PersonnelManagerModule);
+    return PersonnelManagerModule;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.PersonnelManagerModule = PersonnelManagerModule;
+//# sourceMappingURL=personnel-manager.module.js.map
