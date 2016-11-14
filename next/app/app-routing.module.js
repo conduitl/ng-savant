@@ -9,22 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
 var router_1 = require('@angular/router');
-var navbar_component_1 = require('./navbar.component');
-var CoreModule = (function () {
-    function CoreModule() {
+var project_center_component_1 = require('./project-center/project-center.component');
+var personnel_manager_component_1 = require('./personnel/personnel-manager.component');
+var AppRoutingModule = (function () {
+    function AppRoutingModule() {
     }
-    CoreModule = __decorate([
+    AppRoutingModule = __decorate([
         core_1.NgModule({
-            imports: [common_1.CommonModule, router_1.RouterModule],
-            declarations: [navbar_component_1.NavbarComponent],
-            exports: [navbar_component_1.NavbarComponent],
-            providers: []
+            imports: [
+                router_1.RouterModule.forRoot([
+                    { path: 'projects', component: project_center_component_1.ProjectCenterComponent },
+                    { path: 'personnel', component: personnel_manager_component_1.PersonnelManagerComponent },
+                    { path: '', redirectTo: 'projects', pathMatch: 'full' }
+                ])
+            ],
+            exports: [
+                router_1.RouterModule
+            ]
         }), 
         __metadata('design:paramtypes', [])
-    ], CoreModule);
-    return CoreModule;
+    ], AppRoutingModule);
+    return AppRoutingModule;
 }());
-exports.CoreModule = CoreModule;
-//# sourceMappingURL=core.module.js.map
+exports.AppRoutingModule = AppRoutingModule;
+//# sourceMappingURL=app-routing.module.js.map

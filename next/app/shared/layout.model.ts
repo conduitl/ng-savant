@@ -9,7 +9,7 @@ export class ColumnMap {
     private _header: string;
     private _format: string;
     alternativeKeys?: string[];
-constructor ( settings ) {
+    constructor ( settings ) {
         this.primaryKey = settings.primaryKey;
         this.header = settings.header;
         this.format = settings.format;
@@ -30,7 +30,7 @@ constructor ( settings ) {
     get format() {
         return this._format;
     }
-access = function ( object: any ) {
+    access = function ( object: any ) {
         if (object[this.primaryKey] || !this.alternativeKeys) {
             return this.primaryKey;
         }
