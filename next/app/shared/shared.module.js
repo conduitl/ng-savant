@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var common_2 = require('@angular/common');
 var table_layout_component_1 = require('./table-layout.component');
+var preview_component_1 = require('./preview.component');
 var format_cell_pipe_1 = require('./format-cell.pipe');
 var style_cell_directive_1 = require('./style-cell.directive');
 var SharedModule = (function () {
@@ -22,12 +23,14 @@ var SharedModule = (function () {
             imports: [common_1.CommonModule],
             declarations: [
                 table_layout_component_1.TableLayoutComponent,
+                preview_component_1.PreviewComponent,
                 format_cell_pipe_1.FormatCellPipe,
                 style_cell_directive_1.StyleCellDirective
             ],
             exports: [
                 common_1.CommonModule,
-                table_layout_component_1.TableLayoutComponent
+                table_layout_component_1.TableLayoutComponent,
+                preview_component_1.PreviewComponent
             ],
             providers: [common_2.CurrencyPipe]
         }), 
