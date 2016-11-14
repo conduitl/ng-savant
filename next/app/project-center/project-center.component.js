@@ -31,19 +31,9 @@ var ProjectCenterComponent = (function () {
                 alternativeKeys: ['total_cost']
             }
         ];
-        this.personnelSettings = [
-            { primaryKey: 'name' },
-            { primaryKey: 'year_joined', header: 'Joined' },
-            { primaryKey: 'missions' },
-            { primaryKey: 'manager' },
-            { primaryKey: 'crewWith', header: 'Crew mates' }
-        ];
     }
     ProjectCenterComponent.prototype.ngOnInit = function () {
         this.projects = this.projectService.getProjects();
-        this.people = this.projectService.getPersonnel();
-        console.log(this.projects);
-        console.log(this.people);
     };
     ProjectCenterComponent = __decorate([
         core_1.Component({
