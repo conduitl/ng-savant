@@ -1,0 +1,49 @@
+.table {
+    table-layout: fixed;
+    width: 100%;
+    white-space: nowrap;
+}
+.table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.handle {
+    cursor: col-resize;
+    width: 10px;
+}
+.table th {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.table th .glyphicon {
+    font-size: 10px;
+    padding: 4px;
+    left: 4px;
+}
+.settable-col-heading {
+    padding: 6px;
+    border-radius: 3px;
+    display:inline-block;
+    
+}
+.settable-col-heading:hover {
+    background-color: #333333;
+    color: #efefef;
+}
+.settable-col-heading:hover > .drop-nav {
+    display: block;
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+}
+.drop-nav {
+    position: absolute;
+    width: 200px;
+    margin-top: 6px;
+    margin-left: -6px;
+    border: 1px solid #999999;
+    background-color: #ffffff;
+    color: #333333;
+    border-radius: 3px;
+    display: none;
+}

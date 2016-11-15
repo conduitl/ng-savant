@@ -3,7 +3,21 @@
         <caption *ngIf="caption">{{ caption }}</caption>
         <thead>
             <tr>
-                <th *ngFor="let map of columnMaps">{{ map.header }}</th>
+                <th *ngFor="let map of columnMaps; let i = index"
+                    [ngStyle]="{'width': columnStates[i].width}">
+                    <div class="settable-col-heading">
+                            {{ map.header }}  
+                            {{ columnStates[i].width }}
+                            <span class="glyphicon glyphicon-chevron-down "></span>
+                            <ul class="drop-nav">
+                        <li>Width</li>
+                        <li>Sort</li>
+                        <li>Visible</li>
+                    </ul>
+                    </div>
+                    
+                    
+                </th>
             </tr>
         </thead>
         <tbody>

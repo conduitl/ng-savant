@@ -24,7 +24,6 @@ var PersonnelManagerComponent = (function () {
     }
     PersonnelManagerComponent.prototype.ngOnInit = function () {
         this.people = this.personnelService.getPersonnel();
-        console.log(this.people);
     };
     PersonnelManagerComponent = __decorate([
         core_1.Component({

@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var layout_model_1 = require('./layout.model');
 var TableLayoutComponent = (function () {
     function TableLayoutComponent() {
+        this.columnStates = [];
     }
     TableLayoutComponent.prototype.ngOnChanges = function () {
         if (this.settings) {
@@ -23,6 +24,37 @@ var TableLayoutComponent = (function () {
                 return new layout_model_1.ColumnMap({ primaryKey: key });
             });
         }
+        this.initializeColumnState();
+        this.setColumnWidth('missions', 40);
+    };
+    TableLayoutComponent.prototype.initializeColumnState = function () {
+        var len = this.columnMaps.length;
+        var defaultWidth = 100 / len;
+        for (var i = 0; i < len; i++) {
+            var column = {};
+            column.position = i;
+            column.name = this.columnMaps[i].header;
+            column.width = defaultWidth;
+            this.columnStates.push(column);
+        }
+        console.log('State of columns');
+        console.log(this.columnStates);
+    };
+    TableLayoutComponent.prototype.setColumnWidth = function (name, width) {
+        name = name.toLowerCase();
+        var defaultWidth = (100 - width) / (this.columnStates.length - 1);
+        for (var _i = 0, _a = this.columnStates; _i < _a.length; _i++) {
+            var column = _a[_i];
+            if (column.name.toLowerCase() === name) {
+                column.width = width;
+            }
+            else {
+                column.width = defaultWidth;
+            }
+        }
+    };
+    TableLayoutComponent.prototype.logEvent = function () {
+        console.log('dragging');
     };
     __decorate([
         core_1.Input(), 
@@ -39,7 +71,8 @@ var TableLayoutComponent = (function () {
     TableLayoutComponent = __decorate([
         core_1.Component({
             selector: 'ct-table',
-            templateUrl: 'app/shared/table-layout.component.html'
+            templateUrl: 'app/shared/table-layout.component.html',
+            styleUrls: ['app/shared/table-layout.component.css']
         }), 
         __metadata('design:paramtypes', [])
     ], TableLayoutComponent);
