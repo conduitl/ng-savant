@@ -9,25 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.isOpen = false;
+var common_1 = require('@angular/common');
+var navbar_component_1 = require('./navbar.component');
+var collapse_1 = require('./collapse');
+var CoreModule = (function () {
+    function CoreModule() {
     }
-    AppComponent.prototype.openSideView = function () {
-        this.isOpen = true;
-    };
-    AppComponent.prototype.closeSideView = function () {
-        this.isOpen = false;
-    };
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'app/app.component.html',
-            styleUrls: ['app/app.component.css']
+    CoreModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule],
+            declarations: [navbar_component_1.NavbarComponent, collapse_1.Collapse],
+            exports: [navbar_component_1.NavbarComponent],
+            providers: []
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], CoreModule);
+    return CoreModule;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.CoreModule = CoreModule;
+//# sourceMappingURL=core.module.js.map

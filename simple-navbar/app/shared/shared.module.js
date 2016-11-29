@@ -9,25 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.isOpen = false;
+var common_1 = require('@angular/common');
+var table_layout_component_1 = require('./table-layout.component');
+var SharedModule = (function () {
+    function SharedModule() {
     }
-    AppComponent.prototype.openSideView = function () {
-        this.isOpen = true;
-    };
-    AppComponent.prototype.closeSideView = function () {
-        this.isOpen = false;
-    };
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'app/app.component.html',
-            styleUrls: ['app/app.component.css']
+    SharedModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule],
+            declarations: [table_layout_component_1.TableLayoutComponent],
+            exports: [
+                common_1.CommonModule,
+                table_layout_component_1.TableLayoutComponent
+            ]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], SharedModule);
+    return SharedModule;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.SharedModule = SharedModule;
+//# sourceMappingURL=shared.module.js.map

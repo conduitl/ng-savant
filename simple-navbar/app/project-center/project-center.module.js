@@ -9,25 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.isOpen = false;
+var shared_module_1 = require('../shared/shared.module');
+var project_center_component_1 = require('./project-center.component');
+var ProjectCenterModule = (function () {
+    function ProjectCenterModule() {
     }
-    AppComponent.prototype.openSideView = function () {
-        this.isOpen = true;
-    };
-    AppComponent.prototype.closeSideView = function () {
-        this.isOpen = false;
-    };
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'app/app.component.html',
-            styleUrls: ['app/app.component.css']
+    ProjectCenterModule = __decorate([
+        core_1.NgModule({
+            imports: [shared_module_1.SharedModule],
+            declarations: [project_center_component_1.ProjectCenterComponent],
+            providers: [],
+            exports: [project_center_component_1.ProjectCenterComponent]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], ProjectCenterModule);
+    return ProjectCenterModule;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.ProjectCenterModule = ProjectCenterModule;
+//# sourceMappingURL=project-center.module.js.map

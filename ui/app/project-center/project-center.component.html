@@ -2,5 +2,81 @@
     <div class="page-header">
         <h1>{{ title }}</h1>
     </div>
-    <ct-table></ct-table>
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <!-- Input field for filter -->
+            <span class="form-inline">
+                <div class="form-group">
+                    <label for="tableFilter">Filter results: </label>
+                    <input type="text" class="form-control" id="tableFilter" placeholder="Filter table results">
+                </div>
+                <div class="form-group">
+                    <label for="colGroup">Group by: </label>
+                    <select class="form-control">
+                        <option>Column 1</option>
+                        <option>Column 2</option>
+                        <option>Column 3</option>
+                    </select>
+                </div>
+            </span>
+            <!-- Right-aligned toolbar controls -->
+            <div class="pull-right">
+                <!-- Layout icon group --> 
+                <div class="btn-group">
+                    <button class="btn btn-default"><span class="glyphicon glyphicon-list-alt"></span></button>
+                    <button class="btn btn-default"><span class="glyphicon glyphicon-th-list"></span></button>
+                    <button class="btn btn-default"><span class="glyphicon glyphicon-th-large"></span></button>
+                </div>
+                <!-- Dropdown -->
+                <div class="btn-group" ctDropdown>
+                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        Settings
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                            <a href="#" (click)="setState('number 1')">Search settings
+                                <span class="glyphicon glyphicon-ok pull-right"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a (click)="toggleColSettings()">Column settings
+                                <span class="glyphicon glyphicon-ok pull-right"></span>
+                            </a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a (click)="setState('number 3')">Data sources
+                                <span class="glyphicon glyphicon-ok pull-right"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Display settings --> 
+    <ct-display-settings *ngIf="showColSettings"></ct-display-settings>
+    <div class="panel panel-default">
+        <div class="panel-heading"
+             (click)="toggleView('panel1')">
+            <div class="panel-title">Group 1</div>
+        </div>
+        <div class="panel-collapse collapse"
+            [ngClass]="{ 'in': panelStates['panel1'] }">
+            <div class="panel-body">
+                <ct-table></ct-table>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <ct-table></ct-table>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <ct-table></ct-table>
+        </div>
+    </div>
 </div>

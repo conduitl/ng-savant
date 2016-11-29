@@ -11,19 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
-        this.isOpen = false;
     }
-    AppComponent.prototype.openSideView = function () {
-        this.isOpen = true;
-    };
-    AppComponent.prototype.closeSideView = function () {
-        this.isOpen = false;
-    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            templateUrl: 'app/app.component.html',
-            styleUrls: ['app/app.component.css']
+            templateUrl: 'app/app.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

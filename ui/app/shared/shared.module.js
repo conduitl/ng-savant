@@ -11,16 +11,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var table_layout_component_1 = require('./table-layout.component');
+var dropdown_directive_1 = require('./dropdown.directive');
+var display_settings_component_1 = require('./display-settings.component');
 var SharedModule = (function () {
     function SharedModule() {
     }
     SharedModule = __decorate([
         core_1.NgModule({
             imports: [common_1.CommonModule],
-            declarations: [table_layout_component_1.TableLayoutComponent],
+            declarations: [table_layout_component_1.TableLayoutComponent, dropdown_directive_1.Dropdown, display_settings_component_1.DisplaySettingsComponent],
             exports: [
                 common_1.CommonModule,
-                table_layout_component_1.TableLayoutComponent
+                table_layout_component_1.TableLayoutComponent,
+                dropdown_directive_1.Dropdown,
+                display_settings_component_1.DisplaySettingsComponent
             ]
         }), 
         __metadata('design:paramtypes', [])
