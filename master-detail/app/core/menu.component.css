@@ -1,0 +1,66 @@
+#ct-main-view.open {
+    margin-bottom: 144px;
+}
+.ct-btn-dark {
+    background-color: #222222;;
+}
+.ct-btn-dark:hover {
+    background-color: #666666;
+    color: #ffffff;
+}
+.ct-btn-dark:focus {
+    background-color: blue;
+    color: #ffffff;
+}
+.ct-btn-dark.ct-blue {
+    background-color: blue;
+}
+.ct-menu, .ct-view-ctrl {
+    background-color: #333333;
+    color: #ffffff;
+}
+.ct-view-ctrl {
+    display: none;
+    position: fixed;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.ct-view-ctrl.mobile {
+    display: block;
+    bottom: -5px;
+    right: 10px;
+    padding-bottom: 7px;
+}
+.ct-view-ctrl .glyphicon {
+    padding: 20px 9px;
+}
+.ct-view-ctrl.mobile .glyphicon {
+    padding: 9px 20px;
+}
+.ct-menu {
+    position: fixed;
+    padding: 12px;
+    width: 100%;
+    height: 144px;
+    bottom: 0;
+}
+@media (min-width: 768px) {
+    #ct-main-view.open {
+        width: 67%;
+    }
+    .ct-menu {
+        width: 33%;
+        height: 100%;
+        top: 52px;
+        right: 0;
+    }
+    .ct-view-ctrl {
+        display: block;
+        top: 52px;
+        right: -5px;
+        padding-right: 7px;
+    }
+    .ct-view-ctrl.mobile {
+        display: none;
+    }
+}

@@ -1,0 +1,8 @@
+<ct-navbar></ct-navbar>
+<main id="ct-main-view" [ngClass]="{ 'open': isOpen }">
+    <router-outlet ></router-outlet>
+</main>
+<!-- positioned components -->
+<ct-menu (open)="adjustMainView($event)">
+    <router-outlet name="panel"></router-outlet>
+</ct-menu>

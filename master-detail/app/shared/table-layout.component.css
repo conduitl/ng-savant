@@ -1,0 +1,17 @@
+.ct-responsive-table-container {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd;
+    padding:10px;
+}
+
+.ct-responsive-table-container > .table > thead > tr > th,
+.ct-responsive-table-container > .table > tbody > tr > th,
+.ct-responsive-table-container > .table > tfoot > tr > th,
+.ct-responsive-table-container > .table > thead > tr > td,
+.ct-responsive-table-container > .table > tbody > tr > td,
+.ct-responsive-table-container > .table > tfoot > tr > td {
+    white-space: nowrap;
+}

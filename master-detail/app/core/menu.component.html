@@ -1,0 +1,18 @@
+<div *ngIf="isOpen" class="ct-menu">
+    <button class="btn btn-sm ct-btn-dark"
+            [routerLink]="['', {outlets: {'panel': 'summary'}}]"
+            routerLinkActive="ct-blue"
+            >Summary</button>
+    <button class="btn btn-sm ct-btn-dark"             
+            [routerLink]="['', {outlets: {'panel': 'preview'}}]"
+            routerLinkActive="ct-blue">Preview</button>
+    <ng-content></ng-content>
+</div>
+<div class="ct-view-ctrl mobile" (click)="toggleState()">
+    <span *ngIf="!isOpen" class="glyphicon glyphicon-chevron-up"></span>
+    <span *ngIf="isOpen"  class="glyphicon glyphicon-chevron-down"></span>
+</div>
+<div class="ct-view-ctrl" (click)="toggleState()">
+    <span *ngIf="!isOpen" class="glyphicon glyphicon-chevron-left"></span>
+    <span *ngIf="isOpen"  class="glyphicon glyphicon-chevron-right"></span>
+</div>
