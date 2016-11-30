@@ -39,7 +39,8 @@ var TableLayoutComponent = (function () {
     TableLayoutComponent = __decorate([
         core_1.Component({
             selector: 'ct-table',
-            templateUrl: 'app/shared/table-layout.component.html'
+            templateUrl: 'app/shared/table-layout.component.html',
+            styleUrls: ['app/shared/table-layout.component.css']
         }), 
         __metadata('design:paramtypes', [])
     ], TableLayoutComponent);

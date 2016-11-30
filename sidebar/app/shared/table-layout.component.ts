@@ -2,7 +2,8 @@ import { Component, Input, OnChanges } from '@angular/core';
 import { ColumnSetting, ColumnMap } from './layout.model';
 @Component({
     selector: 'ct-table',
-    templateUrl: 'app/shared/table-layout.component.html'
+    templateUrl: 'app/shared/table-layout.component.html',
+    styleUrls: ['app/shared/table-layout.component.css']
 })
 export class TableLayoutComponent implements OnChanges { 
     @Input() records: any[];
