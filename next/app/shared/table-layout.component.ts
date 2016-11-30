@@ -22,6 +22,7 @@ export class TableLayoutComponent implements OnChanges {
         }
         this.initializeColumnState();
         this.setColumnWidth('missions', 40);
+        this.setColumnWidth('crew mates', 50);
     }
     initializeColumnState() {
         let len = this.columnMaps.length;

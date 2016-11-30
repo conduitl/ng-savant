@@ -26,6 +26,7 @@ var TableLayoutComponent = (function () {
         }
         this.initializeColumnState();
         this.setColumnWidth('missions', 40);
+        this.setColumnWidth('crew mates', 50);
     };
     TableLayoutComponent.prototype.initializeColumnState = function () {
         var len = this.columnMaps.length;
