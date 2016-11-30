@@ -7,7 +7,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let record of records">
+            <tr *ngFor="let record of records"
+                (click)="select(record.id)">
                 <td *ngFor="let map of columnMaps"
                     [ctStyleCell]="record[map.access(record)]">
                     {{ record[map.access(record)] | formatCell:map.format }}

@@ -24,6 +24,9 @@ var TableLayoutComponent = (function () {
             });
         }
     };
+    TableLayoutComponent.prototype.select = function (id) {
+        console.log(id);
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Array)

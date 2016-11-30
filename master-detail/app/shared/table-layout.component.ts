@@ -20,4 +20,8 @@ export class TableLayoutComponent implements OnChanges {
             });
         }
     }
+
+    select(id: number) {
+        console.log(id);
+    }
 }
