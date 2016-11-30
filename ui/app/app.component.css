@@ -1,0 +1,68 @@
+
+.side-view-ctrl .glyphicon {
+    padding: 20px 9px;
+}
+.view-ctrl .glyphicon {
+    padding: 9px 20px;
+}
+.main.view-open {
+    margin-bottom: 200px;
+}
+.side-view {
+    position: fixed;
+    padding: 12px;
+    height: 200px;
+    width: 100%;
+    bottom: -190px;
+    background-color: #333333;
+    color: #ffffff;
+}
+.side-view.open {
+    bottom: 0;
+}
+.view-ctrl {
+    position: fixed;
+    bottom: 0;
+    right: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    padding-bottom: 7px;
+    background-color: #333333;
+    color: #ffffff;
+}
+.side-view-ctrl {
+    display: none;
+}
+@media (min-width: 768px) {
+    .view-ctrl {
+        display: none;
+    }
+    .main.view-open {
+        width: calc(100% - 350px);
+    }
+    .side-view {
+        position: fixed;
+        padding: 12px;
+        width: 350px;
+        height: 100%;
+        background-color: #333333;
+        color: #ffffff;
+        top: 52px;
+        right: -350px;
+        transition-property: right;
+    }
+    .side-view.open {
+        right: 0;
+    }
+    .side-view-ctrl {
+        display: block;
+        position: fixed;
+        top: 52px;
+        background-color: #333333;
+        color: #ffffff;
+        right: -5px;
+        border-radius: 10px;
+        cursor: pointer;
+        padding-right: 7px;
+    }
+}

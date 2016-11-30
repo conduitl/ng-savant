@@ -1,2 +1,28 @@
 <ct-navbar></ct-navbar>
-<ct-project-center></ct-project-center>
+<div class="main"
+     [ngClass]="{'view-open': isOpen }">
+    <ct-project-center></ct-project-center>
+</div>
+<div class="side-view-ctrl"
+     (click)="openSideView()">
+     <span class="glyphicon glyphicon-chevron-left"></span>
+</div>
+<div class="view-ctrl"
+     (click)="openSideView()">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+</div>
+<div class="side-view"
+     [ngClass]="{'open': isOpen }">
+    <div class="side-view-ctrl hidden"
+         [ngClass]="{'hidden': !isOpen }"
+         (click)="closeSideView()">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </div>
+    <div class="view-ctrl"
+         [ngClass]="{'hidden': !isOpen }"
+         (click)="closeSideView()">
+         <span class="glyphicon glyphicon-chevron-down"></span>
+    </div>
+    <h3>Data Summary</h3>
+    <hr />
+</div>

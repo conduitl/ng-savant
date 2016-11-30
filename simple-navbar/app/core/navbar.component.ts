@@ -4,9 +4,10 @@ import { Component } from '@angular/core';
     selector: 'ct-navbar',
     templateUrl: 'app/core/navbar.component.html'
 })
-export class NavbarComponent { 
-    isIn = false;
+export class NavbarComponent {
+    isIn = true;
     toggleState() {
-        this.isIn = this.isIn === false ? true : false;
+        let bool = this.isIn;
+        this.isIn = bool === false ? true : false; 
     }
 }

@@ -12,11 +12,30 @@ var core_1 = require('@angular/core');
 var ProjectCenterComponent = (function () {
     function ProjectCenterComponent() {
         this.title = 'Project Center';
+        this.showColSettings = false;
+        this.panelStates = {};
     }
+    ProjectCenterComponent.prototype.setState = function (state) {
+        this.dropAction = state;
+    };
+    ProjectCenterComponent.prototype.toggleColSettings = function () {
+        this.showColSettings = !this.showColSettings;
+    };
+    ProjectCenterComponent.prototype.toggleView = function (panel_id) {
+        console.log('Toggle panel: ' + panel_id);
+        if (!this.panelStates[panel_id]) {
+            this.panelStates[panel_id] = true;
+        }
+        else {
+            this.panelStates[panel_id] = !this.panelStates[panel_id];
+        }
+        console.log(this.panelStates);
+    };
     ProjectCenterComponent = __decorate([
         core_1.Component({
             selector: 'ct-project-center',
-            templateUrl: 'app/project-center/project-center.component.html'
+            templateUrl: 'app/project-center/project-center.component.html',
+            styles: ["\n        .glyphicon {\n            margin-top: 5px;\n            margin-bottom: 5px;\n        }\n        a .glyphicon {\n            font-size: 9px;\n        }\n        .form-group {\n            margin-right: 10px;\n        }\n        .btn-group {\n            margin-right: 10px;\n        }\n    "]
         }), 
         __metadata('design:paramtypes', [])
     ], ProjectCenterComponent);
