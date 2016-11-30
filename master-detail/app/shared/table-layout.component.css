@@ -15,3 +15,14 @@
 .ct-responsive-table-container > .table > tfoot > tr > td {
     white-space: nowrap;
 }
+
+.ct-selected, .ct-selected:hover {
+    background-color: #333;
+    color: #eee;
+}
+tr.ct-selectable-row {
+    cursor: pointer;
+}
+tr.ct-selectable-row td span {
+    cursor: auto;
+}

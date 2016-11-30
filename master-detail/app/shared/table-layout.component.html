@@ -1,5 +1,5 @@
 <div class="ct-responsive-table-container">
-    <table class="table table-condensed">
+    <table class="table table-condensed table-hover">
         <caption *ngIf="caption">{{ caption }}</caption>
         <thead>
             <tr>
@@ -8,10 +8,13 @@
         </thead>
         <tbody>
             <tr *ngFor="let record of records"
+                 class="ct-selectable-row"
                 (click)="select(record.id)">
                 <td *ngFor="let map of columnMaps"
                     [ctStyleCell]="record[map.access(record)]">
-                    {{ record[map.access(record)] | formatCell:map.format }}
+                    <span>
+                        {{ record[map.access(record)] | formatCell:map.format }}
+                    </span>
                 </td>
             </tr>
         </tbody>
