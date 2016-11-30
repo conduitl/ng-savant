@@ -5,18 +5,9 @@
             <tr>
                 <th *ngFor="let map of columnMaps; let i = index"
                     [ngStyle]="{'width': columnStates[i].width}">
-                    <div class="settable-col-heading">
+                    <div>
                             {{ map.header }}  
-                            {{ columnStates[i].width }}
-                            <span class="glyphicon glyphicon-chevron-down "></span>
-                            <ul class="drop-nav">
-                        <li>Width</li>
-                        <li>Sort</li>
-                        <li>Visible</li>
-                    </ul>
-                    </div>
-                    
-                    
+                    </div>          
                 </th>
             </tr>
         </thead>

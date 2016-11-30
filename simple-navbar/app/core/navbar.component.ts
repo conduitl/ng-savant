@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
     templateUrl: 'app/core/navbar.component.html'
 })
 export class NavbarComponent {
-    isIn = true;
+    isIn = false;
     toggleState() {
         let bool = this.isIn;
         this.isIn = bool === false ? true : false; 
