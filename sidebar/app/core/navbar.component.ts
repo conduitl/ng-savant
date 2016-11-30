@@ -9,4 +9,10 @@ import { Component } from '@angular/core';
         }
     `]
 })
-export class NavbarComponent { }
+export class NavbarComponent {
+    isIn = false;
+    toggleState() {
+        let bool = this.isIn;
+        this.isIn = bool === false ? true : false; 
+    }
+}

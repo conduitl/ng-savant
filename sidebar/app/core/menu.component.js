@@ -9,23 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var NavbarComponent = (function () {
-    function NavbarComponent() {
-        this.isIn = false;
+var MenuComponent = (function () {
+    function MenuComponent() {
     }
-    NavbarComponent.prototype.toggleState = function () {
-        var bool = this.isIn;
-        this.isIn = bool === false ? true : false;
-    };
-    NavbarComponent = __decorate([
+    MenuComponent = __decorate([
         core_1.Component({
-            selector: 'ct-navbar',
-            templateUrl: 'app/core/navbar.component.html',
-            styles: ["\n        .blue  a {\n            background-color: blue !important;\n        }\n    "]
+            selector: 'ct-menu',
+            templateUrl: 'app/core/menu.component.html',
+            styleUrls: ['app/core/menu.component.css'],
+            encapsulation: core_1.ViewEncapsulation.None
         }), 
         __metadata('design:paramtypes', [])
-    ], NavbarComponent);
-    return NavbarComponent;
+    ], MenuComponent);
+    return MenuComponent;
 }());
-exports.NavbarComponent = NavbarComponent;
-//# sourceMappingURL=navbar.component.js.map
+exports.MenuComponent = MenuComponent;
+//# sourceMappingURL=menu.component.js.map

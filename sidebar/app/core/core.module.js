@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var router_1 = require('@angular/router');
 var navbar_component_1 = require('./navbar.component');
+var menu_component_1 = require('./menu.component');
 var not_found_component_1 = require('./not-found.component');
 var CoreModule = (function () {
     function CoreModule() {
@@ -19,8 +20,15 @@ var CoreModule = (function () {
     CoreModule = __decorate([
         core_1.NgModule({
             imports: [common_1.CommonModule, router_1.RouterModule],
-            declarations: [navbar_component_1.NavbarComponent, not_found_component_1.NotFoundComponent],
-            exports: [navbar_component_1.NavbarComponent],
+            declarations: [
+                navbar_component_1.NavbarComponent,
+                menu_component_1.MenuComponent,
+                not_found_component_1.NotFoundComponent
+            ],
+            exports: [
+                navbar_component_1.NavbarComponent,
+                menu_component_1.MenuComponent
+            ],
             providers: []
         }), 
         __metadata('design:paramtypes', [])

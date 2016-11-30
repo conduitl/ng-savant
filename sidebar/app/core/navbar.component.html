@@ -1,15 +1,26 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
+            <button type="button" 
+                    class="navbar-toggle collapsed"
+                   (click)="toggleState()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             <a class="navbar-brand">Project Manager</a>
         </div>
-        <ul class="nav navbar-nav">
-            <li routerLinkActive="active blue">
-                <a routerLink="/personnel">Personnel</a>
-            </li>
-            <li routerLinkActive="active blue">
-                <a routerLink="/projects">Projects</a>
-            </li>
-        </ul>
+        <div class="collapse navbar-collapse"
+            [ngClass]="{'in': isIn }">
+            <ul class="nav navbar-nav">
+                <li routerLinkActive="active blue">
+                    <a routerLink="/personnel">Personnel</a>
+                </li>
+                <li routerLinkActive="active blue">
+                    <a routerLink="/projects">Projects</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
