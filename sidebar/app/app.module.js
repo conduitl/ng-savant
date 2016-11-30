@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
-var app_routing_module_1 = require('./app-routing.module');
 var core_module_1 = require('./core/core.module');
 var project_center_module_1 = require('./project-center/project-center.module');
 var personnel_manager_module_1 = require('./personnel-manager/personnel-manager.module');
@@ -22,10 +21,9 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
-                core_module_1.CoreModule,
                 project_center_module_1.ProjectCenterModule,
                 personnel_manager_module_1.PersonnelManagerModule,
-                app_routing_module_1.AppRoutingModule
+                core_module_1.CoreModule
             ],
             declarations: [app_component_1.AppComponent],
             bootstrap: [app_component_1.AppComponent]

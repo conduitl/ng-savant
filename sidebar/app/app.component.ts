@@ -3,4 +3,9 @@ import { Component } from '@angular/core';
   selector: 'my-app',
   templateUrl: 'app/app.component.html'
 })
-export class AppComponent { }
+export class AppComponent {
+    isOpen: boolean = false;
+    adjustMainView(event: boolean) {
+      this.isOpen = event;
+    }
+ }

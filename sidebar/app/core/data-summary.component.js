@@ -9,31 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var MenuComponent = (function () {
-    function MenuComponent() {
-        this.open = new core_1.EventEmitter();
-        this.isOpen = false;
+var DataSummaryComponent = (function () {
+    function DataSummaryComponent() {
     }
-    MenuComponent.prototype.toggleState = function () {
-        var bool = this.isOpen;
-        var updatedState = bool === false ? true : false;
-        this.isOpen = updatedState;
-        this.open.emit(updatedState);
-    };
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], MenuComponent.prototype, "open", void 0);
-    MenuComponent = __decorate([
+    DataSummaryComponent = __decorate([
         core_1.Component({
-            selector: 'ct-menu',
-            templateUrl: 'app/core/menu.component.html',
-            styleUrls: ['app/core/menu.component.css'],
-            encapsulation: core_1.ViewEncapsulation.None
+            template: "\n        <h3>Data set summary</h3>\n    "
         }), 
         __metadata('design:paramtypes', [])
-    ], MenuComponent);
-    return MenuComponent;
+    ], DataSummaryComponent);
+    return DataSummaryComponent;
 }());
-exports.MenuComponent = MenuComponent;
-//# sourceMappingURL=menu.component.js.map
+exports.DataSummaryComponent = DataSummaryComponent;
+//# sourceMappingURL=data-summary.component.js.map

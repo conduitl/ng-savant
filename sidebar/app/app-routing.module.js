@@ -11,8 +11,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var not_found_component_1 = require('./core/not-found.component');
+var preview_component_1 = require('./core/preview.component');
+var data_summary_component_1 = require('./core/data-summary.component');
 var appRoutes = [
-    { path: '**', component: not_found_component_1.NotFoundComponent }
+    {
+        path: 'preview', component: preview_component_1.PreviewComponent, outlet: 'panel'
+    },
+    {
+        path: 'summary', component: data_summary_component_1.DataSummaryComponent, outlet: 'panel'
+    },
+    {
+        path: '', component: data_summary_component_1.DataSummaryComponent, outlet: 'panel'
+    },
+    {
+        path: '**', component: not_found_component_1.NotFoundComponent
+    }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

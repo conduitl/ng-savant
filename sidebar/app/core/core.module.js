@@ -10,24 +10,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var router_1 = require('@angular/router');
 var navbar_component_1 = require('./navbar.component');
 var menu_component_1 = require('./menu.component');
 var not_found_component_1 = require('./not-found.component');
+var data_summary_component_1 = require('./data-summary.component');
+var preview_component_1 = require('./preview.component');
+var app_routing_module_1 = require('../app-routing.module');
 var CoreModule = (function () {
     function CoreModule() {
     }
     CoreModule = __decorate([
         core_1.NgModule({
-            imports: [common_1.CommonModule, router_1.RouterModule],
+            imports: [common_1.CommonModule, app_routing_module_1.AppRoutingModule],
             declarations: [
                 navbar_component_1.NavbarComponent,
                 menu_component_1.MenuComponent,
-                not_found_component_1.NotFoundComponent
+                not_found_component_1.NotFoundComponent,
+                data_summary_component_1.DataSummaryComponent,
+                preview_component_1.PreviewComponent
             ],
             exports: [
                 navbar_component_1.NavbarComponent,
-                menu_component_1.MenuComponent
+                menu_component_1.MenuComponent,
+                data_summary_component_1.DataSummaryComponent,
+                preview_component_1.PreviewComponent,
+                app_routing_module_1.AppRoutingModule
             ],
             providers: []
         }), 

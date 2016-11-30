@@ -11,7 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
+        this.isOpen = false;
     }
+    AppComponent.prototype.adjustMainView = function (event) {
+        this.isOpen = event;
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
