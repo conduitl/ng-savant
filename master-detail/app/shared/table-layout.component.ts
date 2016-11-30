@@ -10,6 +10,7 @@ export class TableLayoutComponent implements OnChanges {
     @Input() caption: string;
     @Input() settings: ColumnSetting[];
     columnMaps: ColumnMap[]; 
+    selectedId: number;
     ngOnChanges() {
         if (this.settings) {
             this.columnMaps = this.settings
@@ -23,5 +24,6 @@ export class TableLayoutComponent implements OnChanges {
 
     select(id: number) {
         console.log(id);
+        this.selectedId = id;
     }
 }

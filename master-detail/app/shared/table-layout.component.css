@@ -16,7 +16,7 @@
     white-space: nowrap;
 }
 
-.ct-selected, .ct-selected:hover {
+.selected, .selected:hover {
     background-color: #333;
     color: #eee;
 }

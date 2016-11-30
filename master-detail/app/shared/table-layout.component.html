@@ -9,6 +9,7 @@
         <tbody>
             <tr *ngFor="let record of records"
                  class="ct-selectable-row"
+                 [class.selected]="selectedId === record.id"
                 (click)="select(record.id)">
                 <td *ngFor="let map of columnMaps"
                     [ctStyleCell]="record[map.access(record)]">

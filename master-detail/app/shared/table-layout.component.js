@@ -26,6 +26,7 @@ var TableLayoutComponent = (function () {
     };
     TableLayoutComponent.prototype.select = function (id) {
         console.log(id);
+        this.selectedId = id;
     };
     __decorate([
         core_1.Input(), 
