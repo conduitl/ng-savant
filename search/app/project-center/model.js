@@ -5,10 +5,4 @@ var Project = (function () {
     return Project;
 }());
 exports.Project = Project;
-var Person = (function () {
-    function Person() {
-    }
-    return Person;
-}());
-exports.Person = Person;
 //# sourceMappingURL=model.js.map

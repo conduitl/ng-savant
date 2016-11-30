@@ -15,7 +15,8 @@ var NavbarComponent = (function () {
     NavbarComponent = __decorate([
         core_1.Component({
             selector: 'ct-navbar',
-            templateUrl: 'app/core/navbar.component.html'
+            templateUrl: 'app/core/navbar.component.html',
+            styles: ["\n        .blue  a {\n            background-color: blue !important;\n        }\n    "]
         }), 
         __metadata('design:paramtypes', [])
     ], NavbarComponent);

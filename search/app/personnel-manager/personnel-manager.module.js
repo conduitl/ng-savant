@@ -9,31 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
 var shared_module_1 = require('../shared/shared.module');
-var project_center_component_1 = require('./project-center.component');
-var project_service_1 = require('./project.service');
-var ProjectCenterModule = (function () {
-    function ProjectCenterModule() {
+var personnel_manager_component_1 = require('./personnel-manager.component');
+var personnel_routing_module_1 = require('./personnel-routing.module');
+var personnel_service_1 = require('./personnel.service');
+var PersonnelManagerModule = (function () {
+    function PersonnelManagerModule() {
     }
-    ProjectCenterModule = __decorate([
+    PersonnelManagerModule = __decorate([
         core_1.NgModule({
             imports: [
                 shared_module_1.SharedModule,
-                router_1.RouterModule.forChild([
-                    {
-                        path: 'projects',
-                        component: project_center_component_1.ProjectCenterComponent
-                    }
-                ])
+                personnel_routing_module_1.PersonnelRoutingModule
             ],
-            declarations: [project_center_component_1.ProjectCenterComponent],
-            providers: [project_service_1.ProjectService],
-            exports: [project_center_component_1.ProjectCenterComponent]
+            declarations: [personnel_manager_component_1.PersonnelManagerComponent],
+            providers: [personnel_service_1.PersonnelService],
+            exports: [personnel_manager_component_1.PersonnelManagerComponent]
         }), 
         __metadata('design:paramtypes', [])
-    ], ProjectCenterModule);
-    return ProjectCenterModule;
+    ], PersonnelManagerModule);
+    return PersonnelManagerModule;
 }());
-exports.ProjectCenterModule = ProjectCenterModule;
-//# sourceMappingURL=project-center.module.js.map
+exports.PersonnelManagerModule = PersonnelManagerModule;
+//# sourceMappingURL=personnel-manager.module.js.map

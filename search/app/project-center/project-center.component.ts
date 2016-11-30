@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from './project.service';
-import { Project, Person } from './model';
+import { Project } from './model';
 import { ColumnSetting } from '../shared/layout.model';
 @Component({
     selector: 'ct-project-center',
@@ -9,7 +9,6 @@ import { ColumnSetting } from '../shared/layout.model';
 export class ProjectCenterComponent implements OnInit {
     title: string = 'Project Center';
     projects: Project[];
-    people: Person[];
     projectSettings: ColumnSetting[] = 
       [
           {
@@ -28,19 +27,8 @@ export class ProjectCenterComponent implements OnInit {
               alternativeKeys: ['total_cost']
           }
       ];
-    personnelSettings: ColumnSetting[] = 
-       [
-            {  primaryKey: 'name' },
-            {  primaryKey: 'year_joined', header: 'Joined' },
-            {  primaryKey: 'missions' },
-            {  primaryKey: 'manager'  },
-            {  primaryKey: 'crewWith', header: 'Crew mates'}
-        ];
     constructor(private projectService: ProjectService){}
     ngOnInit() {
         this.projects = this.projectService.getProjects();
-        this.people =   this.projectService.getPersonnel();
-        console.log(this.projects);
-        console.log(this.people);
     }
  }

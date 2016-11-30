@@ -9,23 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
-var router_1 = require('@angular/router');
-var navbar_component_1 = require('./navbar.component');
-var not_found_component_1 = require('./not-found.component');
-var CoreModule = (function () {
-    function CoreModule() {
+var fakedata_1 = require('./fakedata');
+var PersonnelService = (function () {
+    function PersonnelService() {
     }
-    CoreModule = __decorate([
-        core_1.NgModule({
-            imports: [common_1.CommonModule, router_1.RouterModule],
-            declarations: [navbar_component_1.NavbarComponent, not_found_component_1.NotFoundComponent],
-            exports: [navbar_component_1.NavbarComponent],
-            providers: []
-        }), 
+    PersonnelService.prototype.getPersonnel = function () {
+        return fakedata_1.PERSONNEL;
+    };
+    PersonnelService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], CoreModule);
-    return CoreModule;
+    ], PersonnelService);
+    return PersonnelService;
 }());
-exports.CoreModule = CoreModule;
-//# sourceMappingURL=core.module.js.map
+exports.PersonnelService = PersonnelService;
+//# sourceMappingURL=personnel.service.js.map

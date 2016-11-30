@@ -17,9 +17,6 @@ var ProjectService = (function () {
         // actual implementation would use async method
         return fakedata_1.PROJECTS;
     };
-    ProjectService.prototype.getPersonnel = function () {
-        return fakedata_1.PERSONNEL;
-    };
     ProjectService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

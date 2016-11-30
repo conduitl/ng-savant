@@ -10,30 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var shared_module_1 = require('../shared/shared.module');
-var project_center_component_1 = require('./project-center.component');
-var project_service_1 = require('./project.service');
-var ProjectCenterModule = (function () {
-    function ProjectCenterModule() {
+var not_found_component_1 = require('./core/not-found.component');
+var appRoutes = [
+    { path: '**', component: not_found_component_1.NotFoundComponent }
+];
+var AppRoutingModule = (function () {
+    function AppRoutingModule() {
     }
-    ProjectCenterModule = __decorate([
+    AppRoutingModule = __decorate([
         core_1.NgModule({
             imports: [
-                shared_module_1.SharedModule,
-                router_1.RouterModule.forChild([
-                    {
-                        path: 'projects',
-                        component: project_center_component_1.ProjectCenterComponent
-                    }
-                ])
+                router_1.RouterModule.forRoot(appRoutes)
             ],
-            declarations: [project_center_component_1.ProjectCenterComponent],
-            providers: [project_service_1.ProjectService],
-            exports: [project_center_component_1.ProjectCenterComponent]
+            exports: [
+                router_1.RouterModule
+            ]
         }), 
         __metadata('design:paramtypes', [])
-    ], ProjectCenterModule);
-    return ProjectCenterModule;
+    ], AppRoutingModule);
+    return AppRoutingModule;
 }());
-exports.ProjectCenterModule = ProjectCenterModule;
-//# sourceMappingURL=project-center.module.js.map
+exports.AppRoutingModule = AppRoutingModule;
+//# sourceMappingURL=app-routing.module.js.map
