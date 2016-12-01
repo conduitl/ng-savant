@@ -9,14 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var project_service_1 = require('../project-center/project.service');
 var DataSummaryComponent = (function () {
-    function DataSummaryComponent() {
+    function DataSummaryComponent(projectService) {
+        this.projectService = projectService;
     }
+    DataSummaryComponent.prototype.ngOnInit = function () {
+        this.projects = this.projectService.getProjects();
+        console.log('Hello from Preview');
+        console.log('Your projects are:');
+        console.log(this.projects);
+    };
     DataSummaryComponent = __decorate([
         core_1.Component({
             template: "\n        <h3>Data set summary</h3>\n    "
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [project_service_1.ProjectService])
     ], DataSummaryComponent);
     return DataSummaryComponent;
 }());

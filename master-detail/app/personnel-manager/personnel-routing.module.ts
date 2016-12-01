@@ -6,7 +6,15 @@ import { PersonnelManagerComponent } from './personnel-manager.component';
 const personnelRoutes: Routes = [
     {
         path: 'personnel',
-        component: PersonnelManagerComponent
+        children: [
+          {
+            path: ':id',
+            component: PersonnelManagerComponent,
+          },
+          {
+            path: ''
+          }
+        ]
     },
     {
         path: '',

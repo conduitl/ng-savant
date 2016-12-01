@@ -14,7 +14,15 @@ var personnel_manager_component_1 = require('./personnel-manager.component');
 var personnelRoutes = [
     {
         path: 'personnel',
-        component: personnel_manager_component_1.PersonnelManagerComponent
+        children: [
+            {
+                path: ':id',
+                component: personnel_manager_component_1.PersonnelManagerComponent,
+            },
+            {
+                path: ''
+            }
+        ]
     },
     {
         path: '',

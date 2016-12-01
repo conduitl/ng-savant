@@ -10,9 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var layout_model_1 = require('./layout.model');
+var router_1 = require('@angular/router');
+require('rxjs/add/operator/switchMap');
 var TableLayoutComponent = (function () {
-    function TableLayoutComponent() {
+    function TableLayoutComponent(router, route) {
+        this.router = router;
+        this.route = route;
     }
+    TableLayoutComponent.prototype.ngOnInit = function () {
+        // get route params
+        // this.route.params.forEach( (params: Params) => {
+        // })
+        console.log('Reload');
+    };
     TableLayoutComponent.prototype.ngOnChanges = function () {
         if (this.settings) {
             this.columnMaps = this.settings
@@ -25,8 +35,14 @@ var TableLayoutComponent = (function () {
         }
     };
     TableLayoutComponent.prototype.select = function (id) {
-        console.log(id);
+        var currentId = +this.route.snapshot.params['id'];
         this.selectedId = id;
+        if (currentId) {
+            this.router.navigate(['../', id], { relativeTo: this.route });
+        }
+        else {
+            this.router.navigate([id], { relativeTo: this.route });
+        }
     };
     __decorate([
         core_1.Input(), 
@@ -46,7 +62,7 @@ var TableLayoutComponent = (function () {
             templateUrl: 'app/shared/table-layout.component.html',
             styleUrls: ['app/shared/table-layout.component.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute])
     ], TableLayoutComponent);
     return TableLayoutComponent;
 }());

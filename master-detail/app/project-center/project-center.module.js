@@ -22,6 +22,10 @@ var ProjectCenterModule = (function () {
                 shared_module_1.SharedModule,
                 router_1.RouterModule.forChild([
                     {
+                        path: 'projects/:id',
+                        component: project_center_component_1.ProjectCenterComponent
+                    },
+                    {
                         path: 'projects',
                         component: project_center_component_1.ProjectCenterComponent
                     }

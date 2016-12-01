@@ -8,6 +8,10 @@ import { ProjectService } from './project.service';
         SharedModule,
         RouterModule.forChild([
             {
+                path: 'projects/:id',
+                component: ProjectCenterComponent
+            },
+            {
                 path: 'projects',
                 component: ProjectCenterComponent
             }
