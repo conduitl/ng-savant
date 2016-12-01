@@ -10,21 +10,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var project_service_1 = require('../project-center/project.service');
+var personnel_service_1 = require('../personnel-manager/personnel.service');
 var DataSummaryComponent = (function () {
-    function DataSummaryComponent(projectService) {
+    function DataSummaryComponent(projectService, personnelService) {
         this.projectService = projectService;
+        this.personnelService = personnelService;
     }
     DataSummaryComponent.prototype.ngOnInit = function () {
         this.projects = this.projectService.getProjects();
-        console.log('Hello from Preview');
-        console.log('Your projects are:');
-        console.log(this.projects);
+        this.personnel = this.personnelService.getPersonnel();
+        this.summarizeData();
+    };
+    DataSummaryComponent.prototype.summarizeData = function () {
+        this.dataSummary = {
+            projects: {
+                title: 'Projects in data set',
+                total: this.projects.length
+            },
+            personnel: {
+                title: 'Personnel in data set',
+                total: this.personnel.length
+            }
+        };
     };
     DataSummaryComponent = __decorate([
         core_1.Component({
-            template: "\n        <h3>Data set summary</h3>\n    "
+            template: "\n        <h3>Data set summary</h3>\n        <ul>\n            <li>{{ dataSummary.projects.title }} : {{ dataSummary.projects.total }}</li>\n            <li>{{ dataSummary.personnel.title }} : {{ dataSummary.personnel.total }}</li>\n        </ul>\n    "
         }), 
-        __metadata('design:paramtypes', [project_service_1.ProjectService])
+        __metadata('design:paramtypes', [project_service_1.ProjectService, personnel_service_1.PersonnelService])
     ], DataSummaryComponent);
     return DataSummaryComponent;
 }());
