@@ -18,6 +18,7 @@ export class TableLayoutComponent implements OnInit, OnChanges {
         private route: ActivatedRoute
     ) {}
     ngOnInit() {
+       this.route.params.subscribe( (params: Params) => this.selectedId = +params['id']);
     }
     ngOnChanges() {
         if (this.settings) {
