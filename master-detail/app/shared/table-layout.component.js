@@ -18,10 +18,8 @@ var TableLayoutComponent = (function () {
         this.route = route;
     }
     TableLayoutComponent.prototype.ngOnInit = function () {
-        // get route params
-        // this.route.params.forEach( (params: Params) => {
-        // })
-        console.log('Reload');
+        var _this = this;
+        this.route.params.subscribe(function (params) { return _this.selectedId = +params['id']; });
     };
     TableLayoutComponent.prototype.ngOnChanges = function () {
         if (this.settings) {
@@ -35,8 +33,6 @@ var TableLayoutComponent = (function () {
         }
     };
     TableLayoutComponent.prototype.select = function (id) {
-        var currentId = +this.route.snapshot.params['id'];
-        this.selectedId = id;
         this.router.navigate(['../', id], { relativeTo: this.route });
     };
     __decorate([

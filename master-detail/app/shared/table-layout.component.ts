@@ -13,17 +13,11 @@ export class TableLayoutComponent implements OnInit, OnChanges {
     @Input() settings: ColumnSetting[];
     columnMaps: ColumnMap[]; 
     selectedId: number;
-    idFromRoute: number;
     constructor(
         private router: Router,
         private route: ActivatedRoute
     ) {}
     ngOnInit() {
-        // get route params
-        // this.route.params.forEach( (params: Params) => {
-
-        // })
-        console.log('Reload');
     }
     ngOnChanges() {
         if (this.settings) {
@@ -37,8 +31,6 @@ export class TableLayoutComponent implements OnInit, OnChanges {
     }
 
     select(id: number) {
-        let currentId = +this.route.snapshot.params['id'];
-        this.selectedId = id;
         this.router.navigate(['../', id], { relativeTo: this.route });
     }
 }
