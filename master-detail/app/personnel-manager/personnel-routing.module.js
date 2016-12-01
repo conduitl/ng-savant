@@ -20,7 +20,9 @@ var personnelRoutes = [
                 component: personnel_manager_component_1.PersonnelManagerComponent,
             },
             {
-                path: ''
+                path: '',
+                redirectTo: 'select',
+                pathMatch: 'full'
             }
         ]
     },

@@ -12,7 +12,9 @@ const personnelRoutes: Routes = [
             component: PersonnelManagerComponent,
           },
           {
-            path: ''
+            path: '',
+            redirectTo: 'select',
+            pathMatch: 'full'
           }
         ]
     },

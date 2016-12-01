@@ -27,7 +27,8 @@ var ProjectCenterModule = (function () {
                     },
                     {
                         path: 'projects',
-                        component: project_center_component_1.ProjectCenterComponent
+                        redirectTo: 'projects/select',
+                        pathMatch: 'full'
                     }
                 ])
             ],

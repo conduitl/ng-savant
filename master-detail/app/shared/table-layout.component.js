@@ -37,12 +37,7 @@ var TableLayoutComponent = (function () {
     TableLayoutComponent.prototype.select = function (id) {
         var currentId = +this.route.snapshot.params['id'];
         this.selectedId = id;
-        if (currentId) {
-            this.router.navigate(['../', id], { relativeTo: this.route });
-        }
-        else {
-            this.router.navigate([id], { relativeTo: this.route });
-        }
+        this.router.navigate(['../', id], { relativeTo: this.route });
     };
     __decorate([
         core_1.Input(), 

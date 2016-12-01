@@ -39,11 +39,6 @@ export class TableLayoutComponent implements OnInit, OnChanges {
     select(id: number) {
         let currentId = +this.route.snapshot.params['id'];
         this.selectedId = id;
-        if (currentId) {
-            this.router.navigate(['../', id], { relativeTo: this.route });
-        } else {
-            this.router.navigate([id], { relativeTo: this.route })
-        }
-        
+        this.router.navigate(['../', id], { relativeTo: this.route });
     }
 }

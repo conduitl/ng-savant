@@ -13,7 +13,8 @@ import { ProjectService } from './project.service';
             },
             {
                 path: 'projects',
-                component: ProjectCenterComponent
+                redirectTo: 'projects/select',
+                pathMatch: 'full'
             }
         ]) 
       ],
