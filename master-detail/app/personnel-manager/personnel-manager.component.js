@@ -23,7 +23,9 @@ var PersonnelManagerComponent = (function () {
         ];
     }
     PersonnelManagerComponent.prototype.ngOnInit = function () {
-        this.people = this.personnelService.getPersonnel();
+        var _this = this;
+        this.personnelService.getPersonnel()
+            .then(function (personnel) { return _this.people = personnel; });
     };
     PersonnelManagerComponent = __decorate([
         core_1.Component({

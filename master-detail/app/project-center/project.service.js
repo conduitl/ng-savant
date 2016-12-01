@@ -14,8 +14,7 @@ var ProjectService = (function () {
     function ProjectService() {
     }
     ProjectService.prototype.getProjects = function () {
-        // actual implementation would use async method
-        return fakedata_1.PROJECTS;
+        return Promise.resolve(fakedata_1.PROJECTS);
     };
     ProjectService = __decorate([
         core_1.Injectable(), 

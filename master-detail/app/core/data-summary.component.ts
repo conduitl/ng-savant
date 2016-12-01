@@ -7,8 +7,8 @@ import { Person } from '../personnel-manager/model';
     template: `
         <h3>Data set summary</h3>
         <ul>
-            <li>{{ dataSummary.projects.title }} : {{ dataSummary.projects.total }}</li>
-            <li>{{ dataSummary.personnel.title }} : {{ dataSummary.personnel.total }}</li>
+           <!-- <li>{{ dataSummary.projects.title }} : {{ dataSummary.projects.total }}</li>
+            <li>{{ dataSummary.personnel.title }} : {{ dataSummary.personnel.total }}</li> -->
         </ul>
     `
 })
@@ -25,9 +25,11 @@ export class DataSummaryComponent implements OnInit {
     ){}
     
     ngOnInit(){
-        this.projects = this.projectService.getProjects();
-        this.personnel = this.personnelService.getPersonnel();
-        this.summarizeData();
+        this.projectService.getProjects()
+            .then( projects => this.projects = projects);
+        this.personnelService.getPersonnel()
+            .then( personnel => this.personnel = personnel);
+        // this.summarizeData();
     }
     summarizeData() {
         this.dataSummary = {

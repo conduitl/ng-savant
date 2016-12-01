@@ -33,7 +33,9 @@ var ProjectCenterComponent = (function () {
         ];
     }
     ProjectCenterComponent.prototype.ngOnInit = function () {
-        this.projects = this.projectService.getProjects();
+        var _this = this;
+        this.projectService.getProjects()
+            .then(function (projects) { return _this.projects = projects; });
     };
     ProjectCenterComponent = __decorate([
         core_1.Component({

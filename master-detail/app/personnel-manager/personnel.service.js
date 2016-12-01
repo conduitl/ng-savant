@@ -14,7 +14,7 @@ var PersonnelService = (function () {
     function PersonnelService() {
     }
     PersonnelService.prototype.getPersonnel = function () {
-        return fakedata_1.PERSONNEL;
+        return Promise.resolve(fakedata_1.PERSONNEL);
     };
     PersonnelService = __decorate([
         core_1.Injectable(), 

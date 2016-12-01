@@ -17,9 +17,12 @@ var DataSummaryComponent = (function () {
         this.personnelService = personnelService;
     }
     DataSummaryComponent.prototype.ngOnInit = function () {
-        this.projects = this.projectService.getProjects();
-        this.personnel = this.personnelService.getPersonnel();
-        this.summarizeData();
+        var _this = this;
+        this.projectService.getProjects()
+            .then(function (projects) { return _this.projects = projects; });
+        this.personnelService.getPersonnel()
+            .then(function (personnel) { return _this.personnel = personnel; });
+        // this.summarizeData();
     };
     DataSummaryComponent.prototype.summarizeData = function () {
         this.dataSummary = {
@@ -35,7 +38,7 @@ var DataSummaryComponent = (function () {
     };
     DataSummaryComponent = __decorate([
         core_1.Component({
-            template: "\n        <h3>Data set summary</h3>\n        <ul>\n            <li>{{ dataSummary.projects.title }} : {{ dataSummary.projects.total }}</li>\n            <li>{{ dataSummary.personnel.title }} : {{ dataSummary.personnel.total }}</li>\n        </ul>\n    "
+            template: "\n        <h3>Data set summary</h3>\n        <ul>\n           <!-- <li>{{ dataSummary.projects.title }} : {{ dataSummary.projects.total }}</li>\n            <li>{{ dataSummary.personnel.title }} : {{ dataSummary.personnel.total }}</li> -->\n        </ul>\n    "
         }), 
         __metadata('design:paramtypes', [project_service_1.ProjectService, personnel_service_1.PersonnelService])
     ], DataSummaryComponent);

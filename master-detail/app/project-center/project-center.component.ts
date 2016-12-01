@@ -29,6 +29,7 @@ export class ProjectCenterComponent implements OnInit {
       ];
     constructor(private projectService: ProjectService){}
     ngOnInit() {
-        this.projects = this.projectService.getProjects();
+        this.projectService.getProjects()
+            .then( projects => this.projects = projects);
     }
  }
