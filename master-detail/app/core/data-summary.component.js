@@ -18,27 +18,28 @@ var DataSummaryComponent = (function () {
     }
     DataSummaryComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.projectService.getProjects()
-            .then(function (projects) { return _this.projects = projects; });
-        this.personnelService.getPersonnel()
-            .then(function (personnel) { return _this.personnel = personnel; });
-        // this.summarizeData();
+        Promise.all([
+            this.projectService.getProjects(),
+            this.personnelService.getPersonnel()
+        ]).then(function (values) {
+            _this.summarizeData(values[0], values[1]);
+        });
     };
-    DataSummaryComponent.prototype.summarizeData = function () {
+    DataSummaryComponent.prototype.summarizeData = function (projects, personnel) {
         this.dataSummary = {
             projects: {
                 title: 'Projects in data set',
-                total: this.projects.length
+                total: projects.length
             },
             personnel: {
                 title: 'Personnel in data set',
-                total: this.personnel.length
+                total: personnel.length
             }
         };
     };
     DataSummaryComponent = __decorate([
         core_1.Component({
-            template: "\n        <h3>Data set summary</h3>\n        <ul>\n           <!-- <li>{{ dataSummary.projects.title }} : {{ dataSummary.projects.total }}</li>\n            <li>{{ dataSummary.personnel.title }} : {{ dataSummary.personnel.total }}</li> -->\n        </ul>\n    "
+            template: "\n        <h3>Data set summary</h3>\n        <ul *ngIf=\"dataSummary\">\n            <li>{{ dataSummary.projects.title }} : {{ dataSummary.projects.total }}</li>\n            <li>{{ dataSummary.personnel.title }} : {{ dataSummary.personnel.total }}</li>\n        </ul>\n    "
         }), 
         __metadata('design:paramtypes', [project_service_1.ProjectService, personnel_service_1.PersonnelService])
     ], DataSummaryComponent);

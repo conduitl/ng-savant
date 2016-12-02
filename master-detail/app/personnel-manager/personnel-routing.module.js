@@ -28,7 +28,7 @@ var personnelRoutes = [
     },
     {
         path: '',
-        redirectTo: '/personnel',
+        redirectTo: '/personnel/select',
         pathMatch: 'full'
     }
 ];

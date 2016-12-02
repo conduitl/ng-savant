@@ -20,7 +20,7 @@ const personnelRoutes: Routes = [
     },
     {
         path: '',
-        redirectTo: '/personnel',
+        redirectTo: '/personnel/select',
         pathMatch: 'full'
     }
 ];

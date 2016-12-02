@@ -6,15 +6,13 @@ import { Person } from '../personnel-manager/model';
 @Component({
     template: `
         <h3>Data set summary</h3>
-        <ul>
-           <!-- <li>{{ dataSummary.projects.title }} : {{ dataSummary.projects.total }}</li>
-            <li>{{ dataSummary.personnel.title }} : {{ dataSummary.personnel.total }}</li> -->
+        <ul *ngIf="dataSummary">
+            <li>{{ dataSummary.projects.title }} : {{ dataSummary.projects.total }}</li>
+            <li>{{ dataSummary.personnel.title }} : {{ dataSummary.personnel.total }}</li>
         </ul>
     `
 })
 export class DataSummaryComponent implements OnInit { 
-    projects: Project[];
-    personnel: Person[];
     dataSummary: {
         projects: any,
         personnel: any
@@ -25,23 +23,23 @@ export class DataSummaryComponent implements OnInit {
     ){}
     
     ngOnInit(){
-        this.projectService.getProjects()
-            .then( projects => this.projects = projects);
-        this.personnelService.getPersonnel()
-            .then( personnel => this.personnel = personnel);
-        // this.summarizeData();
+        Promise.all([
+            this.projectService.getProjects(),
+            this.personnelService.getPersonnel()
+        ]).then(values => {
+            this.summarizeData(values[0], values[1]);
+        });
     }
-    summarizeData() {
+    summarizeData(projects: Project[], personnel: Person[]) {
         this.dataSummary = {
             projects: {
                 title: 'Projects in data set',
-                total: this.projects.length
+                total: projects.length
             },
             personnel: {
                 title: 'Personnel in data set',
-                total: this.personnel.length
+                total: personnel.length
             }
         };
-        
     }
 }
