@@ -19,6 +19,8 @@ var TableLayoutComponent = (function () {
     }
     TableLayoutComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.initializedFeatureState = this.route.root.firstChild.snapshot;
+        console.log(this.initializedFeatureState);
         this.route.params.subscribe(function (params) { return _this.selectedId = +params['id']; });
     };
     TableLayoutComponent.prototype.ngOnChanges = function () {
@@ -33,7 +35,10 @@ var TableLayoutComponent = (function () {
         }
     };
     TableLayoutComponent.prototype.select = function (id) {
-        this.router.navigate(['../', id], { relativeTo: this.route });
+        var featureUrlFragment = this.initializedFeatureState.url[0].path;
+        console.log('Feature url');
+        console.log(featureUrlFragment);
+        this.router.navigate(['../', id, { feature: featureUrlFragment }], { relativeTo: this.route });
     };
     __decorate([
         core_1.Input(), 
