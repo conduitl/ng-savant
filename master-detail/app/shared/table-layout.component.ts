@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { ColumnSetting, ColumnMap } from './layout.model';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-
+import 'rxjs/add/operator/pluck';
 @Component({
     selector: 'ct-table',
     templateUrl: 'app/shared/table-layout.component.html',
@@ -17,8 +17,9 @@ export class TableLayoutComponent implements OnInit, OnChanges {
     constructor(
         private router: Router,
         private route: ActivatedRoute
-    ) { }
+    ) {}
     ngOnInit() {
+       this.route.params.subscribe( (params: Params) => this.selectedId = +params['id']);
     }
     ngOnChanges() {
         if (this.settings) {

@@ -11,12 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var layout_model_1 = require('./layout.model');
 var router_1 = require('@angular/router');
+require('rxjs/add/operator/pluck');
 var TableLayoutComponent = (function () {
     function TableLayoutComponent(router, route) {
         this.router = router;
         this.route = route;
     }
     TableLayoutComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params.subscribe(function (params) { return _this.selectedId = +params['id']; });
     };
     TableLayoutComponent.prototype.ngOnChanges = function () {
         if (this.settings) {
