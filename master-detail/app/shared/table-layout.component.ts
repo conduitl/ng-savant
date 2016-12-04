@@ -13,13 +13,19 @@ export class TableLayoutComponent implements OnInit, OnChanges {
     @Input() settings: ColumnSetting[];
     columnMaps: ColumnMap[]; 
     selectedId: number;
-    currentUrl;
+    currentPath;
+    parentPath;
     constructor(
         private router: Router,
         private route: ActivatedRoute
     ) {}
     ngOnInit() {
+       console.log('TableLayout initialized');
        this.route.params.subscribe( (params: Params) => this.selectedId = +params['id']);
+       this.parentPath = this.route.parent.snapshot.url[0].path;
+       this.route.url.subscribe( u => {
+           this.currentPath = u[0].path;
+       });
     }
     ngOnChanges() {
         if (this.settings) {

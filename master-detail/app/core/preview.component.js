@@ -11,17 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var PreviewComponent = (function () {
-    function PreviewComponent(route) {
+    function PreviewComponent(router, route) {
+        this.router = router;
         this.route = route;
     }
     PreviewComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.router.events.subscribe(function (e) {
+            if (e.constructor.name === "NavigationEnd") {
+                _this.featureUrl = _this.route.root.firstChild.snapshot.url[0].path;
+            }
+        });
+        // this.route.root.firstChild.url.subscribe( u => {
+        //     this.featureUrl = u[0].path;
+        // });
     };
     PreviewComponent = __decorate([
         core_1.Component({
             selector: 'ct-preview',
-            template: "\n        <h3>Preview</h3>\n    "
+            template: "\n        <h3>Preview</h3>\n        <h4>active feature: {{ featureUrl }}</h4>\n    "
         }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute])
+        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute])
     ], PreviewComponent);
     return PreviewComponent;
 }());

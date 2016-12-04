@@ -19,7 +19,12 @@ var TableLayoutComponent = (function () {
     }
     TableLayoutComponent.prototype.ngOnInit = function () {
         var _this = this;
+        console.log('TableLayout initialized');
         this.route.params.subscribe(function (params) { return _this.selectedId = +params['id']; });
+        this.parentPath = this.route.parent.snapshot.url[0].path;
+        this.route.url.subscribe(function (u) {
+            _this.currentPath = u[0].path;
+        });
     };
     TableLayoutComponent.prototype.ngOnChanges = function () {
         if (this.settings) {
