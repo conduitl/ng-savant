@@ -9,15 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var PreviewComponent = (function () {
-    function PreviewComponent() {
+    function PreviewComponent(route) {
+        this.route = route;
     }
+    PreviewComponent.prototype.ngOnInit = function () {
+    };
     PreviewComponent = __decorate([
         core_1.Component({
             selector: 'ct-preview',
             template: "\n        <h3>Preview</h3>\n    "
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute])
     ], PreviewComponent);
     return PreviewComponent;
 }());
