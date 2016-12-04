@@ -8,22 +8,12 @@ import { Project } from '../project-center/model';
     selector: 'ct-preview',
     template: `
         <h3>Preview</h3>
-        <h4>active feature: {{ featureUrl }}</h4>
-        <h4>id selected: {{ featureUrlParams?.id }}</h4>
         <h4 *ngIf="selectedPerson">{{ selectedPerson.name }}</h4>
         <h4 *ngIf="selectedProject">{{ selectedProject.name }}</h4>
     `
 })
 export class PreviewComponent implements OnInit { 
-    // Challenges
-    // - how to know whether to get person or to get project
-    // - how to keep the currently selected object from the other feature
-    //   selected until a new one is selected even as user toggles between features
-    // Router Qs 
-    // how does one outlet subscribe to the state of another outlet?
     state: ActivatedRouteSnapshot;
-    featureUrl: string;
-    featureUrlParams;
     selectedPerson: Person;
     selectedProject: Project;
     constructor(
@@ -51,9 +41,6 @@ export class PreviewComponent implements OnInit {
                         this.fetchData(path, id);
                     }
                 }
-                // temporary diagnostic
-                this.featureUrl = path;
-                this.featureUrlParams = params;
             }
         });
         // Why doesn't this work? Seems like the way to achieve objective

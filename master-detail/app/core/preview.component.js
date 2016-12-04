@@ -36,9 +36,6 @@ var PreviewComponent = (function () {
                         _this.fetchData(path, id);
                     }
                 }
-                // temporary diagnostic
-                _this.featureUrl = path;
-                _this.featureUrlParams = params;
             }
         });
         // Why doesn't this work? Seems like the way to achieve objective
@@ -65,7 +62,7 @@ var PreviewComponent = (function () {
     PreviewComponent = __decorate([
         core_1.Component({
             selector: 'ct-preview',
-            template: "\n        <h3>Preview</h3>\n        <h4>active feature: {{ featureUrl }}</h4>\n        <h4>id selected: {{ featureUrlParams?.id }}</h4>\n        <h4 *ngIf=\"selectedPerson\">{{ selectedPerson.name }}</h4>\n        <h4 *ngIf=\"selectedProject\">{{ selectedProject.name }}</h4>\n    "
+            template: "\n        <h3>Preview</h3>\n        <h4 *ngIf=\"selectedPerson\">{{ selectedPerson.name }}</h4>\n        <h4 *ngIf=\"selectedProject\">{{ selectedProject.name }}</h4>\n    "
         }), 
         __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, personnel_service_1.PersonnelService, project_service_1.ProjectService])
     ], PreviewComponent);
