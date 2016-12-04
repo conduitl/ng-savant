@@ -50,6 +50,7 @@
     }
     .ct-menu {
         width: 33%;
+        max-width: 300px;
         height: 100%;
         top: 52px;
         right: 0;
@@ -62,5 +63,11 @@
     }
     .ct-view-ctrl.mobile {
         display: none;
+    }
+}
+@media (min-width: 992px) {
+    #ct-main-view.open {
+        width: 71%; /*fallback*/
+        width: calc(100% - 300px);
     }
 }

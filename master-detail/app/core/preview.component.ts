@@ -6,11 +6,8 @@ import { ProjectService } from '../project-center/project.service';
 import { Project } from '../project-center/model';
 @Component({
     selector: 'ct-preview',
-    template: `
-        <h3>Preview</h3>
-        <h4 *ngIf="selectedPerson">{{ selectedPerson.name }}</h4>
-        <h4 *ngIf="selectedProject">{{ selectedProject.name }}</h4>
-    `
+    templateUrl: 'app/core/preview.component.html',
+    styleUrls: ['app/core/preview.component.css']
 })
 export class PreviewComponent implements OnInit { 
     state: ActivatedRouteSnapshot;

@@ -1,0 +1,7 @@
+.thumbnail {
+    margin-top: 24px;
+    background-color: #333333;
+}
+.thumbnail > .caption {
+    color: #ffffff;
+}
