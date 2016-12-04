@@ -16,6 +16,11 @@ var ProjectService = (function () {
     ProjectService.prototype.getProjects = function () {
         return Promise.resolve(fakedata_1.PROJECTS);
     };
+    ProjectService.prototype.getProject = function (id) {
+        return this.getProjects()
+            .then(function (projects) { return projects
+            .find(function (project) { return project.id === id; }); });
+    };
     ProjectService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

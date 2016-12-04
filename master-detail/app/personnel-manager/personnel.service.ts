@@ -6,4 +6,9 @@ export class PersonnelService {
     getPersonnel(): Promise<Person[]> {
         return Promise.resolve(PERSONNEL);
     }
+    getPerson(id: number): Promise<Person> {
+        return this.getPersonnel()
+                   .then(personnel => personnel
+                        .find(person => person.id === id));
+    }
 }

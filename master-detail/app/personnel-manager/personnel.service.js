@@ -16,6 +16,11 @@ var PersonnelService = (function () {
     PersonnelService.prototype.getPersonnel = function () {
         return Promise.resolve(fakedata_1.PERSONNEL);
     };
+    PersonnelService.prototype.getPerson = function (id) {
+        return this.getPersonnel()
+            .then(function (personnel) { return personnel
+            .find(function (person) { return person.id === id; }); });
+    };
     PersonnelService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

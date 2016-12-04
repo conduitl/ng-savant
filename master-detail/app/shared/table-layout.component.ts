@@ -21,7 +21,11 @@ export class TableLayoutComponent implements OnInit, OnChanges {
     ) {}
     ngOnInit() {
        console.log('TableLayout initialized');
-       this.route.params.subscribe( (params: Params) => this.selectedId = +params['id']);
+       this.route.params.subscribe( (params: Params) => {
+           console.log('Params found from table layout');
+           console.log( params );
+           this.selectedId = +params['id']
+       });
        this.parentPath = this.route.parent.snapshot.url[0].path;
        this.route.url.subscribe( u => {
            this.currentPath = u[0].path;

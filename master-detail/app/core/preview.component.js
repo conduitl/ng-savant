@@ -10,28 +10,64 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var personnel_service_1 = require('../personnel-manager/personnel.service');
+var project_service_1 = require('../project-center/project.service');
 var PreviewComponent = (function () {
-    function PreviewComponent(router, route) {
+    function PreviewComponent(router, route, personnelService, projectService) {
         this.router = router;
         this.route = route;
+        this.personnelService = personnelService;
+        this.projectService = projectService;
     }
     PreviewComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.router.events.subscribe(function (e) {
             if (e.constructor.name === "NavigationEnd") {
-                _this.featureUrl = _this.route.root.firstChild.snapshot.url[0].path;
+                var snapshot = void 0;
+                var path = void 0;
+                var params = void 0;
+                snapshot = _this.route.root.firstChild.snapshot;
+                path = snapshot.url[0].path;
+                params = snapshot.firstChild.params;
+                if (params && params['id']) {
+                    var id = +params['id'];
+                    if (id) {
+                        console.log('Fetch record');
+                        _this.fetchData(path, id);
+                    }
+                }
+                // temporary diagnostic
+                _this.featureUrl = path;
+                _this.featureUrlParams = params;
             }
         });
+        // Why doesn't this work? Seems like the way to achieve objective
+        // and a better way than above solution
         // this.route.root.firstChild.url.subscribe( u => {
         //     this.featureUrl = u[0].path;
         // });
     };
+    PreviewComponent.prototype.fetchData = function (path, id) {
+        var _this = this;
+        if (path === 'personnel') {
+            this.selectedProject = null;
+            this.personnelService.getPerson(id).then(function (person) {
+                _this.selectedPerson = person;
+            });
+        }
+        if (path === 'projects') {
+            this.selectedPerson = null;
+            this.projectService.getProject(id).then(function (project) {
+                _this.selectedProject = project;
+            });
+        }
+    };
     PreviewComponent = __decorate([
         core_1.Component({
             selector: 'ct-preview',
-            template: "\n        <h3>Preview</h3>\n        <h4>active feature: {{ featureUrl }}</h4>\n    "
+            template: "\n        <h3>Preview</h3>\n        <h4>active feature: {{ featureUrl }}</h4>\n        <h4>id selected: {{ featureUrlParams?.id }}</h4>\n        <h4 *ngIf=\"selectedPerson\">{{ selectedPerson.name }}</h4>\n        <h4 *ngIf=\"selectedProject\">{{ selectedProject.name }}</h4>\n    "
         }), 
-        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute])
+        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, personnel_service_1.PersonnelService, project_service_1.ProjectService])
     ], PreviewComponent);
     return PreviewComponent;
 }());
