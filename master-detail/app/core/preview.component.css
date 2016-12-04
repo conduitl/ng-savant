@@ -1,7 +1,37 @@
 .thumbnail {
-    margin-top: 24px;
     background-color: #333333;
+    margin-right: 100px;
+    max-height: 120px;
+    overflow-y: auto;
 }
 .thumbnail > .caption {
     color: #ffffff;
+    margin-left: 120px;
+}
+.thumbnail > .caption > h4 {
+    margin-top: 0;
+    font-size: 14px;
+}
+.thumbnail > .img-responsive {
+    position: fixed;
+    height: 112px;
+    vertical-align: top;
+}
+@media (min-width: 768px) {
+    .thumbnail {
+        margin-top: 24px;
+        margin-right: 0;
+        max-height: none;
+    }
+    .thumbnail > .img-responsive {
+        position: static;
+        height: auto;
+    }
+    .thumbnail > .caption {
+        margin-left: 0;
+    }
+    .thumbnail > .caption > h4 {
+        margin-top: 10px;
+        font-size: 18px;
+    }
 }

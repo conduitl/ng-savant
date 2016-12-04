@@ -1,11 +1,15 @@
 <div *ngIf="isOpen" class="ct-menu">
-    <button class="btn btn-sm ct-btn-dark"
-            [routerLink]="['', {outlets: {'panel': 'summary'}}]"
-            routerLinkActive="ct-blue"
-            >Summary</button>
-    <button class="btn btn-sm ct-btn-dark"             
-            [routerLink]="['', {outlets: {'panel': 'preview'}}]"
-            routerLinkActive="ct-blue">Preview</button>
+    <div class="ct-panel-toolbar">
+        <div class="btn-group-vertical">
+            <button class="btn btn-sm ct-btn-dark"
+                    [routerLink]="['', {outlets: {'panel': 'summary'}}]"
+                    routerLinkActive="ct-blue"
+                    >Summary</button>
+            <button class="btn btn-sm ct-btn-dark"             
+                    [routerLink]="['', {outlets: {'panel': 'preview'}}]"
+                    routerLinkActive="ct-blue">Preview</button>
+        </div>
+    </div>
     <ng-content></ng-content>
 </div>
 <div class="ct-view-ctrl mobile" (click)="toggleState()">

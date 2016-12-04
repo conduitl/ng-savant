@@ -44,16 +44,36 @@
     height: 144px;
     bottom: 0;
 }
+.ct-panel-toolbar {
+    float: right;
+}
+
+/* bootstrap overrides */
+.thumbnail {
+    
+}
 @media (min-width: 768px) {
+    /* make into regular bootstrap button group 
+       by overwriting vertical styles */
+    .btn-group-vertical > .btn {
+       float: left;
+       width: auto;
+       max-width: auto;
+    }
+    /* main view in root component */
     #ct-main-view.open {
         width: 67%;
     }
+    /* menu styles */
     .ct-menu {
         width: 33%;
         max-width: 300px;
         height: 100%;
         top: 52px;
         right: 0;
+    }
+    ct-menu-body {
+        background-color: green !important;
     }
     .ct-view-ctrl {
         display: block;
@@ -64,6 +84,10 @@
     .ct-view-ctrl.mobile {
         display: none;
     }
+    .ct-panel-toolbar {
+        float: none;
+    }
+    
 }
 @media (min-width: 992px) {
     #ct-main-view.open {
