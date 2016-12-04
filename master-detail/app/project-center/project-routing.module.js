@@ -9,26 +9,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var shared_module_1 = require('../shared/shared.module');
+var router_1 = require('@angular/router');
 var project_center_component_1 = require('./project-center.component');
-var project_service_1 = require('./project.service');
-var project_routing_module_1 = require('./project-routing.module');
-var ProjectCenterModule = (function () {
-    function ProjectCenterModule() {
+var projectRoutes = [
+    {
+        path: 'projects',
+        children: [
+            {
+                path: ':id',
+                component: project_center_component_1.ProjectCenterComponent
+            },
+            {
+                path: '',
+                redirectTo: 'select',
+                pathMatch: 'full'
+            }
+        ]
     }
-    ProjectCenterModule = __decorate([
+];
+var ProjectRoutingModule = (function () {
+    function ProjectRoutingModule() {
+    }
+    ProjectRoutingModule = __decorate([
         core_1.NgModule({
             imports: [
-                shared_module_1.SharedModule,
-                project_routing_module_1.ProjectRoutingModule
+                router_1.RouterModule.forChild(projectRoutes)
             ],
-            declarations: [project_center_component_1.ProjectCenterComponent],
-            providers: [project_service_1.ProjectService],
-            exports: [project_center_component_1.ProjectCenterComponent]
+            exports: [
+                router_1.RouterModule
+            ]
         }), 
         __metadata('design:paramtypes', [])
-    ], ProjectCenterModule);
-    return ProjectCenterModule;
+    ], ProjectRoutingModule);
+    return ProjectRoutingModule;
 }());
-exports.ProjectCenterModule = ProjectCenterModule;
-//# sourceMappingURL=project-center.module.js.map
+exports.ProjectRoutingModule = ProjectRoutingModule;
+//# sourceMappingURL=project-routing.module.js.map
