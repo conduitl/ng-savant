@@ -8,5 +8,8 @@ module.exports = {
     watch: true,
     devServer: {
         contentBase: '.'
+    },
+    resolve: {
+        extensions: ['.js', '.ts', '']
     }
 };
