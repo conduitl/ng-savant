@@ -13,6 +13,16 @@ var fakedata_1 = require('./fakedata');
 var PersonnelService = (function () {
     function PersonnelService() {
     }
+    Object.defineProperty(PersonnelService.prototype, "settings", {
+        get: function () {
+            return this._settings;
+        },
+        set: function (personnelSettings) {
+            this._settings = personnelSettings;
+        },
+        enumerable: true,
+        configurable: true
+    });
     PersonnelService.prototype.getPersonnel = function () {
         return Promise.resolve(fakedata_1.PERSONNEL);
     };

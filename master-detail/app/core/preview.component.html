@@ -1,14 +1,13 @@
-<div class="thumbnail">
+<div *ngIf="selectedRecord && keys" class="thumbnail">
     <img class="img-responsive" src="http://placehold.it/300x300">
     <div class="caption">
-        <h4 *ngIf="selectedPerson">{{ selectedPerson.name }}</h4>
-        <h4 *ngIf="selectedProject">{{ selectedProject.name }}</h4>
+        <h4>{{ selectedRecord.name }}</h4>
         <ul>
-            <li>bullet</li>
-            <li>bullet</li>
-            <li>bullet</li>
-            <li>bullet</li>
-            <li>bullet</li>
+            <span *ngFor="let key of keys">
+                <li *ngIf="doNotDisplayIf([selectedRecord, key.identifier], 'name')">
+                    {{ selectedRecord[key.identifier] | formatCell:key.format  }}
+                </li>
+            </span>
         </ul>
     </div>
 </div>

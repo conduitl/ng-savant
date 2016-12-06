@@ -26,6 +26,7 @@ var PersonnelManagerComponent = (function () {
         var _this = this;
         this.personnelService.getPersonnel()
             .then(function (personnel) { return _this.people = personnel; });
+        this.personnelService.settings = this.personnelSettings;
     };
     PersonnelManagerComponent = __decorate([
         core_1.Component({

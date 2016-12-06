@@ -4,6 +4,7 @@ import { PersonnelService } from '../personnel-manager/personnel.service';
 import { Person } from '../personnel-manager/model';
 import { ProjectService } from '../project-center/project.service';
 import { Project } from '../project-center/model';
+import { ColumnSetting, ColumnMap } from '../shared/layout.model';
 @Component({
     selector: 'ct-preview',
     templateUrl: 'app/core/preview.component.html',
@@ -11,8 +12,10 @@ import { Project } from '../project-center/model';
 })
 export class PreviewComponent implements OnInit { 
     state: ActivatedRouteSnapshot;
-    selectedPerson: Person;
-    selectedProject: Project;
+    selectedRecord: any;
+    settings: ColumnSetting[];
+    valMaps: ColumnMap[];
+    keys: {identifier: string, format: string}[];
     constructor(
         private router: Router,
         private route: ActivatedRoute,
@@ -34,7 +37,6 @@ export class PreviewComponent implements OnInit {
                 if (params && params['id']) {
                     let id = +params['id'];
                     if (id) {
-                        console.log('Fetch record');
                         this.fetchData(path, id);
                     }
                 }
@@ -49,17 +51,44 @@ export class PreviewComponent implements OnInit {
 
     fetchData(path, id){
         if (path === 'personnel') {
-            this.selectedProject = null;
+            let settings = this.personnelService.settings;
             this.personnelService.getPerson(id).then( person => {
-                this.selectedPerson = person;
+                let valMaps = settings.map( col => new ColumnMap(col));
+                let keys = valMaps.map( val => {
+                    return { 
+                             identifier: val.access(person),
+                             format: val.format 
+                           };
+                }); 
+                this.selectedRecord = person;
+                this.keys = keys;
             });
         }
         if (path === 'projects') {
-            this.selectedPerson = null;
+            let settings = this.projectService.settings;
             this.projectService.getProject(id).then( project => {
-                this.selectedProject = project;
+                let valMaps = settings.map( col => new ColumnMap(col));
+                let keys = valMaps.map( val => {
+                    return { 
+                             identifier: val.access(project),
+                             format: val.format 
+                           };
+                }); 
+                this.selectedRecord = project;
+                this.keys = keys;
             });
         }
-
     }
+    doNotDisplayIf(data, target) {
+        let val = data[0][data[1]];
+        let key = data[1];
+        if (!val) {
+            return false;
+        }
+        if (key === target) {
+            return false;
+        }
+        return true;
+    }
+
 }

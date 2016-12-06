@@ -10,18 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var shared_module_1 = require('../shared/shared.module');
 var navbar_component_1 = require('./navbar.component');
 var menu_component_1 = require('./menu.component');
 var not_found_component_1 = require('./not-found.component');
 var data_summary_component_1 = require('./data-summary.component');
 var preview_component_1 = require('./preview.component');
 var app_routing_module_1 = require('../app-routing.module');
+/* App-wide services */
+var common_2 = require('@angular/common');
 var CoreModule = (function () {
     function CoreModule() {
     }
     CoreModule = __decorate([
         core_1.NgModule({
-            imports: [common_1.CommonModule, app_routing_module_1.AppRoutingModule],
+            imports: [common_1.CommonModule, shared_module_1.SharedModule, app_routing_module_1.AppRoutingModule],
             declarations: [
                 navbar_component_1.NavbarComponent,
                 menu_component_1.MenuComponent,
@@ -36,7 +39,7 @@ var CoreModule = (function () {
                 preview_component_1.PreviewComponent,
                 app_routing_module_1.AppRoutingModule
             ],
-            providers: []
+            providers: [common_2.CurrencyPipe]
         }), 
         __metadata('design:paramtypes', [])
     ], CoreModule);

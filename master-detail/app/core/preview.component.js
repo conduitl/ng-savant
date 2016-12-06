@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var personnel_service_1 = require('../personnel-manager/personnel.service');
 var project_service_1 = require('../project-center/project.service');
+var layout_model_1 = require('../shared/layout.model');
 var PreviewComponent = (function () {
     function PreviewComponent(router, route, personnelService, projectService) {
         this.router = router;
@@ -32,7 +33,6 @@ var PreviewComponent = (function () {
                 if (params && params['id']) {
                     var id = +params['id'];
                     if (id) {
-                        console.log('Fetch record');
                         _this.fetchData(path, id);
                     }
                 }
@@ -47,17 +47,44 @@ var PreviewComponent = (function () {
     PreviewComponent.prototype.fetchData = function (path, id) {
         var _this = this;
         if (path === 'personnel') {
-            this.selectedProject = null;
+            var settings_1 = this.personnelService.settings;
             this.personnelService.getPerson(id).then(function (person) {
-                _this.selectedPerson = person;
+                var valMaps = settings_1.map(function (col) { return new layout_model_1.ColumnMap(col); });
+                var keys = valMaps.map(function (val) {
+                    return {
+                        identifier: val.access(person),
+                        format: val.format
+                    };
+                });
+                _this.selectedRecord = person;
+                _this.keys = keys;
             });
         }
         if (path === 'projects') {
-            this.selectedPerson = null;
+            var settings_2 = this.projectService.settings;
             this.projectService.getProject(id).then(function (project) {
-                _this.selectedProject = project;
+                var valMaps = settings_2.map(function (col) { return new layout_model_1.ColumnMap(col); });
+                var keys = valMaps.map(function (val) {
+                    return {
+                        identifier: val.access(project),
+                        format: val.format
+                    };
+                });
+                _this.selectedRecord = project;
+                _this.keys = keys;
             });
         }
+    };
+    PreviewComponent.prototype.doNotDisplayIf = function (data, target) {
+        var val = data[0][data[1]];
+        var key = data[1];
+        if (!val) {
+            return false;
+        }
+        if (key === target) {
+            return false;
+        }
+        return true;
     };
     PreviewComponent = __decorate([
         core_1.Component({

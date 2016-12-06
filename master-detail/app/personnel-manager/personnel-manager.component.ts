@@ -21,5 +21,6 @@ export class PersonnelManagerComponent implements OnInit {
     ngOnInit() {
         this.personnelService.getPersonnel()
             .then(personnel => this.people = personnel);
+        this.personnelService.settings = this.personnelSettings;
     }
  }

@@ -13,6 +13,16 @@ var fakedata_1 = require('./fakedata');
 var ProjectService = (function () {
     function ProjectService() {
     }
+    Object.defineProperty(ProjectService.prototype, "settings", {
+        get: function () {
+            return this._settings;
+        },
+        set: function (projectSettings) {
+            this._settings = projectSettings;
+        },
+        enumerable: true,
+        configurable: true
+    });
     ProjectService.prototype.getProjects = function () {
         return Promise.resolve(fakedata_1.PROJECTS);
     };

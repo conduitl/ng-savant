@@ -36,6 +36,7 @@ var ProjectCenterComponent = (function () {
         var _this = this;
         this.projectService.getProjects()
             .then(function (projects) { return _this.projects = projects; });
+        this.projectService.settings = this.projectSettings;
     };
     ProjectCenterComponent = __decorate([
         core_1.Component({

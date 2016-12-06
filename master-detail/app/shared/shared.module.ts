@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CurrencyPipe } from '@angular/common';
 import { TableLayoutComponent } from './table-layout.component';
 import { FormatCellPipe } from './format-cell.pipe';
 import { StyleCellDirective } from './style-cell.directive';
@@ -14,8 +13,8 @@ import { StyleCellDirective } from './style-cell.directive';
     ],
     exports: [
         CommonModule, 
-        TableLayoutComponent
-    ],
-    providers: [ CurrencyPipe ]
+        TableLayoutComponent,
+        FormatCellPipe
+    ]
 })
 export class SharedModule { }
