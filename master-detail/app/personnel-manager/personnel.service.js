@@ -26,7 +26,7 @@ var PersonnelService = (function () {
     PersonnelService.prototype.getPersonnel = function () {
         return Promise.resolve(fakedata_1.PERSONNEL);
     };
-    PersonnelService.prototype.getPerson = function (id) {
+    PersonnelService.prototype.findOne = function (id) {
         return this.getPersonnel()
             .then(function (personnel) { return personnel
             .find(function (person) { return person.id === id; }); });

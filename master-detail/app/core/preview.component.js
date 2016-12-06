@@ -45,35 +45,27 @@ var PreviewComponent = (function () {
         // });
     };
     PreviewComponent.prototype.fetchData = function (path, id) {
-        var _this = this;
         if (path === 'personnel') {
-            var settings_1 = this.personnelService.settings;
-            this.personnelService.getPerson(id).then(function (person) {
-                var valMaps = settings_1.map(function (col) { return new layout_model_1.ColumnMap(col); });
-                var keys = valMaps.map(function (val) {
-                    return {
-                        identifier: val.access(person),
-                        format: val.format
-                    };
-                });
-                _this.selectedRecord = person;
-                _this.keys = keys;
-            });
+            this.fetchFromService(this.personnelService, id);
         }
         if (path === 'projects') {
-            var settings_2 = this.projectService.settings;
-            this.projectService.getProject(id).then(function (project) {
-                var valMaps = settings_2.map(function (col) { return new layout_model_1.ColumnMap(col); });
-                var keys = valMaps.map(function (val) {
-                    return {
-                        identifier: val.access(project),
-                        format: val.format
-                    };
-                });
-                _this.selectedRecord = project;
-                _this.keys = keys;
-            });
+            this.fetchFromService(this.projectService, id);
         }
+    };
+    PreviewComponent.prototype.fetchFromService = function (service, id) {
+        var _this = this;
+        var settings = service.settings;
+        service.findOne(id).then(function (record) {
+            var valMaps = settings.map(function (col) { return new layout_model_1.ColumnMap(col); });
+            var keys = valMaps.map(function (val) {
+                return {
+                    identifier: val.access(record),
+                    format: val.format
+                };
+            });
+            _this.selectedRecord = record;
+            _this.keys = keys;
+        });
     };
     PreviewComponent.prototype.doNotDisplayIf = function (data, target) {
         var val = data[0][data[1]];

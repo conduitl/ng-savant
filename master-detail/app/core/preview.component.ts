@@ -51,33 +51,25 @@ export class PreviewComponent implements OnInit {
 
     fetchData(path, id){
         if (path === 'personnel') {
-            let settings = this.personnelService.settings;
-            this.personnelService.getPerson(id).then( person => {
-                let valMaps = settings.map( col => new ColumnMap(col));
-                let keys = valMaps.map( val => {
-                    return { 
-                             identifier: val.access(person),
-                             format: val.format 
-                           };
-                }); 
-                this.selectedRecord = person;
-                this.keys = keys;
-            });
+            this.fetchFromService(this.personnelService, id);
         }
         if (path === 'projects') {
-            let settings = this.projectService.settings;
-            this.projectService.getProject(id).then( project => {
-                let valMaps = settings.map( col => new ColumnMap(col));
-                let keys = valMaps.map( val => {
-                    return { 
-                             identifier: val.access(project),
-                             format: val.format 
-                           };
-                }); 
-                this.selectedRecord = project;
-                this.keys = keys;
-            });
+            this.fetchFromService(this.projectService, id);
         }
+    }
+    fetchFromService(service, id){
+        let settings = service.settings;
+        service.findOne(id).then( record => {
+            let valMaps = settings.map( col => new ColumnMap(col));
+            let keys = valMaps.map( val => {
+                return { 
+                            identifier: val.access(record),
+                            format: val.format 
+                        };
+            }); 
+            this.selectedRecord = record;
+            this.keys = keys;
+        });
     }
     doNotDisplayIf(data, target) {
         let val = data[0][data[1]];
