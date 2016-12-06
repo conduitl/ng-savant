@@ -4,7 +4,7 @@
         <h4>{{ selectedRecord.name }}</h4>
         <ul>
             <span *ngFor="let key of keys">
-                <li *ngIf="doNotDisplayIf([selectedRecord, key.identifier], 'name')">
+                <li *ngIf="selectedRecord[key.identifier] && excludeIf(key.identifier, 'name')">
                     {{ selectedRecord[key.identifier] | formatCell:key.format  }}
                 </li>
             </span>

@@ -67,13 +67,8 @@ var PreviewComponent = (function () {
             _this.keys = keys;
         });
     };
-    PreviewComponent.prototype.doNotDisplayIf = function (data, target) {
-        var val = data[0][data[1]];
-        var key = data[1];
-        if (!val) {
-            return false;
-        }
-        if (key === target) {
+    PreviewComponent.prototype.excludeIf = function (provided_key, exclude_target) {
+        if (provided_key === exclude_target) {
             return false;
         }
         return true;

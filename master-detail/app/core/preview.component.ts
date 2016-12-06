@@ -64,20 +64,15 @@ export class PreviewComponent implements OnInit {
             let keys = valMaps.map( val => {
                 return { 
                             identifier: val.access(record),
-                            format: val.format 
+                            format: val.format
                         };
             }); 
             this.selectedRecord = record;
             this.keys = keys;
         });
     }
-    doNotDisplayIf(data, target) {
-        let val = data[0][data[1]];
-        let key = data[1];
-        if (!val) {
-            return false;
-        }
-        if (key === target) {
+    excludeIf(provided_key, exclude_target) {
+        if (provided_key === exclude_target) {
             return false;
         }
         return true;
