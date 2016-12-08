@@ -13,6 +13,7 @@ var common_1 = require('@angular/common');
 var table_layout_component_1 = require('./table-layout.component');
 var format_cell_pipe_1 = require('./format-cell.pipe');
 var style_cell_directive_1 = require('./style-cell.directive');
+var bar_chart_component_1 = require('./charts/bar-chart.component');
 var SharedModule = (function () {
     function SharedModule() {
     }
@@ -22,12 +23,14 @@ var SharedModule = (function () {
             declarations: [
                 table_layout_component_1.TableLayoutComponent,
                 format_cell_pipe_1.FormatCellPipe,
-                style_cell_directive_1.StyleCellDirective
+                style_cell_directive_1.StyleCellDirective,
+                bar_chart_component_1.BarChartComponent
             ],
             exports: [
                 common_1.CommonModule,
                 table_layout_component_1.TableLayoutComponent,
-                format_cell_pipe_1.FormatCellPipe
+                format_cell_pipe_1.FormatCellPipe,
+                bar_chart_component_1.BarChartComponent
             ]
         }), 
         __metadata('design:paramtypes', [])

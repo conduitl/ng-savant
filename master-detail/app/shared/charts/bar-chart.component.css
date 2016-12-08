@@ -1,0 +1,42 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  padding-top: 20px;
+}
+
+.graph .labels.x-labels {
+  text-anchor: middle;
+}
+
+.graph .labels.y-labels {
+  text-anchor: start;
+}
+
+.graph .axis {
+  stroke: #ccc;
+  stroke-dasharray: 0;
+  stroke-width: 6;
+}
+
+.graph .bars {
+  fill: #2C448B;
+}
+
+.labels {
+  font-size: 36px;
+}
+.labels line {
+  stroke: #ccc;
+  stroke-width: 3;
+}
+
+.label-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 36px;
+  fill: black;
+}
+
+.data {
+  fill: red;
+  stroke-width: 1;
+}

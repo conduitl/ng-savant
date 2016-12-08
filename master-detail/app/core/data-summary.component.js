@@ -39,7 +39,8 @@ var DataSummaryComponent = (function () {
     };
     DataSummaryComponent = __decorate([
         core_1.Component({
-            template: "\n        <h3>Data set summary</h3>\n        <ul *ngIf=\"dataSummary\">\n            <li>{{ dataSummary.projects.title }} : {{ dataSummary.projects.total }}</li>\n            <li>{{ dataSummary.personnel.title }} : {{ dataSummary.personnel.total }}</li>\n        </ul>\n    "
+            template: "\n        <h3>Data set summary</h3>\n        <ul *ngIf=\"dataSummary\">\n            <li>{{ dataSummary.projects.title }} : {{ dataSummary.projects.total }}</li>\n            <li>{{ dataSummary.personnel.title }} : {{ dataSummary.personnel.total }}</li>\n        </ul>\n        <div class=\"ct-chart\">\n            <div class=\"panel panel-default\">\n                <div class=\"panel-heading\">\n                    <div class=\"panel-title\">A bar chart</div>\n                </div>\n                <div class=\"panel-body\">\n                    <bar-chart></bar-chart>\n                </div>\n            </div>\n        </div>\n\n    ",
+            styles: ["\n        .svg {\n            fill: blue;\n        }\n    "]
         }), 
         __metadata('design:paramtypes', [project_service_1.ProjectService, personnel_service_1.PersonnelService])
     ], DataSummaryComponent);

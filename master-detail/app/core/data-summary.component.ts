@@ -10,7 +10,23 @@ import { Person } from '../personnel-manager/model';
             <li>{{ dataSummary.projects.title }} : {{ dataSummary.projects.total }}</li>
             <li>{{ dataSummary.personnel.title }} : {{ dataSummary.personnel.total }}</li>
         </ul>
-    `
+        <div class="ct-chart">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">A bar chart</div>
+                </div>
+                <div class="panel-body">
+                    <bar-chart></bar-chart>
+                </div>
+            </div>
+        </div>
+
+    `,
+    styles: [`
+        .svg {
+            fill: blue;
+        }
+    `]
 })
 export class DataSummaryComponent implements OnInit { 
     dataSummary: {
