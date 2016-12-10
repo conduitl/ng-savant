@@ -17,3 +17,7 @@ Building reusable layouts in a shared module. Custom directives and pipes. Lever
 
 ###Simple-Navbar
 [Article: The simple way to make a mobile Angular 2 Bootstrap navbar without jQuery](https://medium.com/@ct7/the-simple-way-to-make-a-mobile-angular-2-bootstrap-navbar-without-jquery-d6b3f67b037b#.qn15liasq)
+
+
+###Sidebar
+Concepts: ViewEncapsulation, NgContent, loading components to named router outlets, navigating to named router outlets.
